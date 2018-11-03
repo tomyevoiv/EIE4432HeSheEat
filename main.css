@@ -1,0 +1,64 @@
+html
+{
+	height: 100%;
+}
+
+body 
+{
+	height: 100%;
+	background: url('https://i.imgur.com/TKpDkrc.jpg'); 
+	background-size: cover;
+    background-repeat:no-repeat;
+	background-attachment:fixed;
+	background-position: center top; 
+}
+
+.header 
+{
+	overflow: auto;
+	opacity: 0.8;
+}
+
+.content
+{
+	padding-top: 1rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	min-height: calc(100vh - 266px);
+}
+
+.footer
+{
+	height: 150px;
+	background-color: #17a2b8;
+	opacity: 0.9;
+}
+
+.FCreator
+{
+	font-weight: bold;
+	text-align: right;
+	position: absolute;
+	padding: 2em;
+	right:0;
+}
+
+.columns
+{
+	float: left;
+	width: 25%;
+	padding: 0 10px;
+}
+
+.wordbox
+{
+	opacity: 0.75;
+	padding: 1rem; 
+	border-radius: 25px;
+	background-color: #ffffff;
+}
+
+.transparentBg
+{
+	opacity: 0.9;
+}
