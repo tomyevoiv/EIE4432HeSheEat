@@ -9,6 +9,17 @@
             integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
             crossorigin="anonymous">
 </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script type = "text/javascript">
+function verticalNav() {
+    var x = document.getElementById("header");
+    if (x.className === "header navbar navbar-expand-lg bg-info") {
+        x.className += " responsive";
+    } else {
+        x.className = "header navbar navbar-expand-lg bg-info";
+    }
+}
+</script>
 </head>
 
 <body>
@@ -16,25 +27,27 @@
 	<nav id="header" class="header navbar navbar-expand-lg bg-info">
 		<img src="asset/logo_small.png" alt="logo" style="height:100px">
 		<ul class="navbar-nav mr-auto">
-		<a href="index.html"><button class="btn btn-outline-light mx-2">Home</button></a> 
-		<a href="restaurantList.html"><button class="btn active btn-outline-light mx-2">Restaurant</button></a>
-		<a href="random.html"><button class="btn btn-outline-light mx-2">Random</button></a>
-		<a href="aboutUs.html"><button class="btn btn-outline-light mx-2">About Us</button></a>
+		<a href="index.html"><button class="btn btn-outline-light">Home</button></a> 
+		<a href="restaurantList.html"><button class="btn btn-outline-light active">Restaurant</button></a>
+		<a href="random.html"><button class="btn btn-outline-light">Random</button></a>
+		<a href="aboutUs.html"><button class="btn btn-outline-light">About Us</button></a>
 		</ul>
-		<form name="UForm" action="searchresult.html" class="form-inline my-2 my-lg-0">
-			<input class="form-control mr-sm-2" type="search" placeholder="Type cursine/district" aria-label="Search">
+		<form name="UForm" action="searchresult.html" class="form-inline">
+			<input class="form-control mr-sm-2" type="search" placeholder="Type cuisine/district" aria-label="Search">
 			<button class="btn btn-dark my-2 my-sm-0" type="submit">Search</button>
 		</form>
+		<a href="javascript:void(0);" class="icon mx-2" onclick="verticalNav()">
+			<i class="fa fa-bars" style="font-size: 30px; color: #343a40;"></i>
+		</a>
 	</nav>
 	
-	<div id="content" class="content">
-
+	<div id="content" class="Rcontent">
 		<div class="card Rcard border-danger transparentBg">
 			<img src="asset/images/fatchicken3.png" alt="Fat girl chicken">
-			<div class="card-header text-danger"><h3>Fat Girl Chicken</h3></div>
+			<div class="card-header text-danger">Fat Girl Chicken</div>
 			<div class="card-body text-danger">
-				<h5 class="card-title">Chinese cursine</h5>
-				<p class="card-text">
+				<div class="card-title">Chinese cuisine</div>
+				<p>
 				Hung Hum<br/>
 				$50-100
 				</p>
@@ -45,7 +58,7 @@
 			<div class="card-header text-danger">The Sesame</div>
 			<div class="card-body text-danger">
 				<div class="card-title">Dessert</div>
-				<p class="card-text">
+				<p>
 				Hung Hum<br/>
 				<$50
 				</p>
@@ -53,10 +66,10 @@
 		</div>
 		<div class="card Rcard border-danger transparentBg">
 			<img src="asset/images/SaizeriyaWP.png" alt="Saizeiya Whompoa">
-			<div class="card-header text-danger"><h3>Saizeiya Whompoa</h3></div>
+			<div class="card-header text-danger">Saizeiya Whompoa</div>
 			<div class="card-body text-danger">
-				<h5 class="card-title">Italian cursine</h5>
-				<p class="card-text">
+				<div class="card-title">Italian cuisine</div>
+				<p>
 				Hung Hum<br/>
 				<$50
 				</p>
@@ -64,10 +77,10 @@
 		</div>
 		<div class="card Rcard border-danger transparentBg">
 			<img src="asset/images/TennoRamen.png" alt="Tenno Ramen">
-			<div class="card-header text-danger"><h3>Tenno Ramen</h3></div>
+			<div class="card-header text-danger">Tenno Ramen</div>
 			<div class="card-body text-danger">
-				<h5 class="card-title">Japanese cursine</h5>
-				<p class="card-text">
+				<div class="card-title">Japanese cuisine</div>
+				<p>
 				Hung Hum<br/>
 				$50-100
 				</p>
@@ -75,10 +88,10 @@
 		</div>
 		<div class="card Rcard border-danger transparentBg">
 			<img src="asset/images/mikawaya.png" alt="Mikawaya">
-			<div class="card-header text-danger"><h3>Mikawaya</h3></div>
+			<div class="card-header text-danger">Mikawaya</div>
 			<div class="card-body text-danger">
-				<h5 class="card-title">Japanese cursine</h5>
-				<p class="card-text">
+				<div class="card-title">Japanese cuisine</div>
+				<p>
 				Hung Hum<br/>
 				$50-100
 				</p>
@@ -86,10 +99,10 @@
 		</div>
 		<div class="card Rcard border-danger transparentBg">
 			<img src="" alt="Image">
-			<div class="card-header text-danger"><h3></h3></div>
+			<div class="card-header text-danger"></div>
 			<div class="card-body text-danger">
-				<h5 class="card-title"></h5>
-				<p class="card-text">
+				<div class="card-title"></div>
+				<p>
 				<br/>
 				
 				</p>
@@ -99,8 +112,8 @@
 			<img src="" alt="Image">
 			<div class="card-header text-danger"><h3></h3></div>
 			<div class="card-body text-danger">
-				<h5 class="card-title"></h5>
-				<p class="card-text">
+				<div class="card-title"></div>
+				<p>
 				<br/>
 				
 				</p>
@@ -110,16 +123,57 @@
 			<img src="" alt="Image">
 			<div class="card-header text-danger"><h3></h3></div>
 			<div class="card-body text-danger">
-				<h5 class="card-title"></h5>
-				<p class="card-text">
+				<div class="card-title"></div>
+				<p>
 				<br/>
 				
 				</p>
 			</div>
 		</div>
-
-	
-	
+		<div class="card Rcard border-danger  transparentBg">
+			<img src="" alt="Image">
+			<div class="card-header text-danger"><h3></h3></div>
+			<div class="card-body text-danger">
+				<div class="card-title"></div>
+				<p>
+				<br/>
+				
+				</p>
+			</div>
+		</div>
+		<div class="card Rcard border-danger  transparentBg">
+			<img src="" alt="Image">
+			<div class="card-header text-danger"><h3></h3></div>
+			<div class="card-body text-danger">
+				<div class="card-title"></div>
+				<p>
+				<br/>
+				
+				</p>
+			</div>
+		</div>
+		<div class="card Rcard border-danger  transparentBg">
+			<img src="" alt="Image">
+			<div class="card-header text-danger"><h3></h3></div>
+			<div class="card-body text-danger">
+				<div class="card-title"></div>
+				<p>
+				<br/>
+				
+				</p>
+			</div>
+		</div>
+		<div class="card Rcard border-danger  transparentBg">
+			<img src="" alt="Image">
+			<div class="card-header text-danger"><h3></h3></div>
+			<div class="card-body text-danger">
+				<div class="card-title"></div>
+				<p>
+				<br/>
+				
+				</p>
+			</div>
+		</div>
 	</div>
 	
 	<div id="footer" class="footer">

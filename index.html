@@ -9,6 +9,17 @@
             integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
             crossorigin="anonymous">
 </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script type = "text/javascript">
+function verticalNav() {
+    var x = document.getElementById("header");
+    if (x.className === "header navbar navbar-expand-lg bg-info") {
+        x.className += " responsive";
+    } else {
+        x.className = "header navbar navbar-expand-lg bg-info";
+    }
+}
+</script>
 </head>
 
 <body>
@@ -16,15 +27,18 @@
 	<nav id="header" class="header navbar navbar-expand-lg bg-info">
 		<img src="asset/logo_small.png" alt="logo" style="height:100px">
 		<ul class="navbar-nav mr-auto">
-		<a href="index.html"><button class="btn active mx-2">Home</button></a> 
-		<a href="restaurantList.html"><button class="btn btn-outline-light mx-2">Restaurant</button></a>
-		<a href="random.html"><button class="btn btn-outline-light mx-2">Random</button></a>
-		<a href="aboutUs.html"><button class="btn btn-outline-light mx-2">About Us</button></a>
+		<a href="index.html"><button class="btn btn-outline-light active">Home</button></a> 
+		<a href="restaurantList.html"><button class="btn btn-outline-light">Restaurant</button></a>
+		<a href="random.html"><button class="btn btn-outline-light">Random</button></a>
+		<a href="aboutUs.html"><button class="btn btn-outline-light">About Us</button></a>
 		</ul>
-		<form name="UForm" action="searchresult.html" class="form-inline my-2 my-lg-0">
-			<input class="form-control mr-sm-2" type="search" placeholder="Type cursine/district" aria-label="Search">
+		<form name="UForm" action="searchresult.html" class="form-inline">
+			<input class="form-control mr-sm-2" type="search" placeholder="Type cuisine/district" aria-label="Search">
 			<button class="btn btn-dark my-2 my-sm-0" type="submit">Search</button>
 		</form>
+		<a href="javascript:void(0);" class="icon mx-2" onclick="verticalNav()">
+			<i class="fa fa-bars" style="font-size: 30px; color: #343a40;"></i>
+		</a>
 	</nav>
 	
 	<div id="content" class="content">
