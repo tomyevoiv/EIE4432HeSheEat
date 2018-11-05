@@ -7,6 +7,9 @@ The website also provides a random function which is designed for user cannot de
 
 VersionInfo:
 
+Ver. 1c
+1. Modify the top navigation bar to responsive, it can now suit in small screen.
+2. Complete layout of cards in restaurantList.html.
 Ver. 1ba
 1. Change ordering method of cards in restaurantsList.html from row to grid.(In progress)
 
