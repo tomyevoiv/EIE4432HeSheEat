@@ -7,6 +7,9 @@ The website also provides a random function which is designed for user cannot de
 
 VersionInfo:
 
+Ver. 1ba
+1. Change ordering method of cards in restaurantsList.html from row to grid.(In progress)
+
 Ver. 1b
 1. Complete design of header, content and footer.
 2. Deciede layout of restaurantList.
