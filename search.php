@@ -1,7 +1,6 @@
-<!DOCTYPE html>
 <html>
 <head>
-<title>HeSheEat</title>
+<title>Search Result</title>
 <link rel="stylesheet" href="main.css"/>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -20,19 +19,27 @@ function verticalNav() {
     }
 }
 </script>
+<script type = "text/javascript">
+	function result()
+	{
+		<?php
+		
+		?>
+	}
+</script>
 </head>
 
-<body>
+<body onload = "result()">
 <div id="sitebody">
 	<nav id="header" class="header navbar navbar-expand-lg bg-info">
 		<img src="asset/logo_small.png" alt="logo" style="height:100px">
 		<ul class="navbar-nav mr-auto">
-		<a href="index.html"><button class="btn btn-outline-light active">Home</button></a> 
+		<a href="index.html"><button class="btn btn-outline-light">Home</button></a> 
 		<a href="restaurantListJS.html"><button class="btn btn-outline-light">Restaurant</button></a>
 		<a href="random.html"><button class="btn btn-outline-light">Random</button></a>
 		<a href="aboutUs.html"><button class="btn btn-outline-light">About Us</button></a>
 		</ul>
-		<form name="UForm" action="searchresult.html" class="form-inline">
+		<form name="UForm" action="search.php" class="form-inline">
 			<input class="form-control mr-sm-2" type="search" placeholder="Type cuisine/district" aria-label="Search">
 			<button class="btn btn-dark my-2 my-sm-0" type="submit">Search</button>
 		</form>
@@ -42,7 +49,7 @@ function verticalNav() {
 	</nav>
 	
 	<div id="content" class="content">
-	
+		
 	</div>
 	
 	<div id="footer" class="footer">

@@ -2,16 +2,23 @@
 <html lang="en">
 <head>
 <title>Restaurant List</title>
+<!-- Main CSS -->
 <link rel="stylesheet" href="main.css"/>
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+<!-- Boostrap -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
             integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
             crossorigin="anonymous">
 </script>
+<!-- W3School Font -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script type = "text/javascript">
-function verticalNav() {
+function verticalNav() 
+{
     var x = document.getElementById("header");
     if (x.className === "header navbar navbar-expand-lg bg-info") {
         x.className += " responsive";
@@ -19,10 +26,32 @@ function verticalNav() {
         x.className = "header navbar navbar-expand-lg bg-info";
     }
 }
+function initialize()
+{
+	$.post("getRestaurant.php",
+		function(data)
+		{
+			var i = 0;
+			var x = 1;
+			data = JSON.parse(data);
+			console.log(data[0]);
+			$("#CH"+1).html(data[0].N);
+			<!-- $("#on9WKC").html(data.N); -->
+			for(i; i < data.length; i++)
+			{
+				$("#CH"+x).html(data[i].N);
+				$("#CC"+x).html(data[i].C);
+				$("#CD"+x).html(data[i].D);
+				$("#CP"+x).html(data[i].P);
+				x++;
+			}
+		}
+	);
+}
 </script>
 </head>
 
-<body>
+<body onload="initialize()">
 <div id="sitebody">
 	<nav id="header" class="header navbar navbar-expand-lg bg-info">
 		<img src="asset/logo_small.png" alt="logo" style="height:100px">
@@ -40,137 +69,138 @@ function verticalNav() {
 			<i class="fa fa-bars" style="font-size: 30px; color: #343a40;"></i>
 		</a>
 	</nav>
-	
+
 	<div id="content" class="Rcontent">
+	<!-- <span id="on9WKC">123</span> -->
 		<div class="card Rcard border-danger transparentBg">
 			<img src="asset/images/fatchicken3.png" alt="Fat girl chicken">
-			<div class="card-header text-danger">Fat Girl Chicken</div>
+			<div id="CH1" class="card-header text-danger"></div>
 			<div class="card-body text-danger">
-				<div class="card-title">Chinese cuisine</div>
+				<div id="CC1" class="card-title"></div>
 				<p>
-				Hung Hum<br/>
-				$50-100
+				<span id="CD1"></span><br/>
+				<span id="CP1"></span>
 				</p>
 			</div>
 		</div>
 		<div class="card Rcard border-danger transparentBg">
 			<img src="asset/images/theSesame.png" alt="The Sesame">
-			<div class="card-header text-danger">The Sesame</div>
+			<div id="CH2" class="card-header text-danger"></div>
 			<div class="card-body text-danger">
-				<div class="card-title">Dessert</div>
+				<div id="CC2" class="card-title"></div>
 				<p>
-				Hung Hum<br/>
-				<$50
+				<span id="CD2"></span><br/>
+				<span id="CP2"></span>
 				</p>
 			</div>
 		</div>
 		<div class="card Rcard border-danger transparentBg">
 			<img src="asset/images/SaizeriyaWP.png" alt="Saizeiya Whompoa">
-			<div class="card-header text-danger">Saizeiya Whompoa</div>
+			<div id="CH3" class="card-header text-danger"></div>
 			<div class="card-body text-danger">
-				<div class="card-title">Italian cuisine</div>
+				<div id="CC3" class="card-title"></div>
 				<p>
-				Hung Hum<br/>
-				<$50
+				<span id="CD3"></span><br/>
+				<span id="CP3"></span>
 				</p>
 			</div>
 		</div>
 		<div class="card Rcard border-danger transparentBg">
 			<img src="asset/images/TennoRamen.png" alt="Tenno Ramen">
-			<div class="card-header text-danger">Tenno Ramen</div>
+			<div id="CH4" class="card-header text-danger"></div>
 			<div class="card-body text-danger">
-				<div class="card-title">Japanese cuisine</div>
+				<div id="CC4" class="card-title"></div>
 				<p>
-				Hung Hum<br/>
-				$50-100
+				<span id="CD4"></span><br/>
+				<span id="CP4"></span>
 				</p>
 			</div>
 		</div>
 		<div class="card Rcard border-danger transparentBg">
 			<img src="asset/images/mikawaya.png" alt="Mikawaya">
-			<div class="card-header text-danger">Mikawaya</div>
+			<div id="CH5" class="card-header text-danger"></div>
 			<div class="card-body text-danger">
-				<div class="card-title">Japanese cuisine</div>
+				<div id="CC5" class="card-title"></div>
 				<p>
-				Hung Hum<br/>
-				$50-100
+				<span id="CD5"></span><br/>
+				<span id="CP5"></span>
 				</p>
 			</div>
 		</div>
 		<div class="card Rcard border-danger transparentBg">
 			<img src="" alt="Image">
-			<div class="card-header text-danger"></div>
+			<div id="CH6" class="card-header text-danger"></div>
 			<div class="card-body text-danger">
-				<div class="card-title"></div>
+				<div id="CC6" class="card-title"></div>
 				<p>
-				<br/>
-				
+				<span id="CD6"></span><br/>
+				<span id="CP6"></span>
 				</p>
 			</div>
 		</div>
 		<div class="card Rcard border-danger transparentBg">
 			<img src="" alt="Image">
-			<div class="card-header text-danger"><h3></h3></div>
+			<div id="CH7" class="card-header text-danger"></div>
 			<div class="card-body text-danger">
-				<div class="card-title"></div>
+				<div id="CC7" class="card-title"></div>
 				<p>
-				<br/>
-				
+				<span id="CD7"></span><br/>
+				<span id="CP7"></span>
 				</p>
 			</div>
 		</div>
 		<div class="card Rcard border-danger  transparentBg">
 			<img src="" alt="Image">
-			<div class="card-header text-danger"><h3></h3></div>
+			<div id="CH8" class="card-header text-danger"></div>
 			<div class="card-body text-danger">
-				<div class="card-title"></div>
+				<div id="CC8" class="card-title"></div>
 				<p>
-				<br/>
-				
+				<span id="CD8"></span><br/>
+				<span id="CP8"></span>
 				</p>
 			</div>
 		</div>
 		<div class="card Rcard border-danger  transparentBg">
 			<img src="" alt="Image">
-			<div class="card-header text-danger"><h3></h3></div>
+			<div id="CH9" class="card-header text-danger"></div>
 			<div class="card-body text-danger">
-				<div class="card-title"></div>
+				<div id="CC9" class="card-title"></div>
 				<p>
-				<br/>
-				
+				<span id="CD9"></span><br/>
+				<span id="CP9"></span>
 				</p>
 			</div>
 		</div>
 		<div class="card Rcard border-danger  transparentBg">
 			<img src="" alt="Image">
-			<div class="card-header text-danger"><h3></h3></div>
+			<div id="CH10" class="card-header text-danger"></div>
 			<div class="card-body text-danger">
-				<div class="card-title"></div>
+				<div id="CC10" class="card-title"></div>
 				<p>
-				<br/>
-				
+				<span id="CD10"></span><br/>
+				<span id="CP10"></span>
 				</p>
 			</div>
 		</div>
 		<div class="card Rcard border-danger  transparentBg">
 			<img src="" alt="Image">
-			<div class="card-header text-danger"><h3></h3></div>
+			<div id="CH11" class="card-header text-danger"></div>
 			<div class="card-body text-danger">
-				<div class="card-title"></div>
+				<div id="CC11" class="card-title"></div>
 				<p>
-				<br/>
-				
+				<span id="CD11"></span><br/>
+				<span id="CP11"></span>
 				</p>
 			</div>
 		</div>
 		<div class="card Rcard border-danger  transparentBg">
 			<img src="" alt="Image">
-			<div class="card-header text-danger"><h3></h3></div>
+			<div id="CH12" class="card-header text-danger"></div>
 			<div class="card-body text-danger">
-				<div class="card-title"></div>
+				<div id="CC12" class="card-title"></div>
 				<p>
-				<br/>
-				
+				<span id="CD12"></span><br/>
+				<span id="CP12"></span>
 				</p>
 			</div>
 		</div>
