@@ -7,9 +7,16 @@ The website also provides a random function which is designed for user cannot de
 
 VersionInfo:
 
+Ver. 1d
+1. Create database to store information of restaurants.
+2. Modify restaurantList.html such that information of restaurants is loaded from database rathar than hard code.
+3. New HTML page restaurantListJS.html, which will generate cards according to length of array obtain from database.
+4. Simple search function which only work in restaurantListJS.html. Future development will the function will link to search.php.
+
 Ver. 1c
 1. Modify the top navigation bar to responsive, it can now suit in small screen.
 2. Complete layout of cards in restaurantList.html.
+
 Ver. 1ba
 1. Change ordering method of cards in restaurantsList.html from row to grid.(In progress)
 
