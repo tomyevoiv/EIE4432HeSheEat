@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: 127.0.0.1
--- 生成日期: 2018-11-13 09:51:20
+-- 生成日期: 2018-11-13 14:16:36
 -- 服务器版本: 5.6.14
 -- PHP 版本: 5.5.6
 
@@ -29,8 +29,8 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `restaurant` (
   `Code` varchar(10) DEFAULT NULL,
   `Name` varchar(20) NOT NULL,
-  `Cuisine` varchar(20) DEFAULT NULL,
-  `District` varchar(10) DEFAULT NULL,
+  `Cuisine` varchar(10) DEFAULT NULL,
+  `District` varchar(20) DEFAULT NULL,
   `Price` varchar(10) DEFAULT NULL,
   `Weighting` int(11) DEFAULT NULL,
   PRIMARY KEY (`Name`)
@@ -41,11 +41,11 @@ CREATE TABLE IF NOT EXISTS `restaurant` (
 --
 
 INSERT INTO `restaurant` (`Code`, `Name`, `Cuisine`, `District`, `Price`, `Weighting`) VALUES
-(NULL, 'Fat Girl Chicken', 'Chinese cuisine', 'Hung Hum', '$50-100', 5),
-(NULL, 'Mikawaya', 'Japanese cuisine', 'Hung Hum', '$50-100', 5),
-(NULL, 'Saizeiya Whompoa', 'Italian cuisine', 'Hung Hum', '<$50', 5),
-(NULL, 'Tenno Ramen', 'Japanese cuisine', 'Hung Hum', '$50-100', 5),
-(NULL, 'The Sesame', 'Dessert', 'Hung Hum', '<$50', 5);
+('vAYTNlN', 'Fat Girl Chicken', 'Chinese', 'Hung Hum', '$50-100', 5),
+('QqJ21We', 'Mikawaya', 'Japanese', 'Hung Hum', '$50-100', 5),
+('WtPZmGE', 'Saizeiya Whompoa', 'Italian', 'Hung Hum', '<$50', 5),
+('ls5g8Tu', 'Tenno Ramen', 'Japanese', 'Hung Hum', '$50-100', 5),
+('81NXzay', 'The Sesame', 'Dessert', 'Hung Hum', '<$50', 5);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
