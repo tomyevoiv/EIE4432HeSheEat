@@ -7,6 +7,10 @@ The website also provides a random function which is designed for user cannot de
 
 VersionInfo:
 
+Ver. 1da
+1. Complete basic search function.
+2. Search function is linked to search.php.
+
 Ver. 1d
 1. Create database to store information of restaurants.
 2. Modify restaurantList.html such that information of restaurants is loaded from database rathar than hard code.
