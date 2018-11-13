@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <html>
 <head>
 <title>Search Result</title>
@@ -64,4 +65,72 @@ function verticalNav() {
 	</div>
 </div>
 </body>
+=======
+<html>
+<head>
+<title>Search Result</title>
+<link rel="stylesheet" href="main.css"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous">
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script type = "text/javascript">
+function verticalNav() {
+    var x = document.getElementById("header");
+    if (x.className === "header navbar navbar-expand-lg bg-info") {
+        x.className += " responsive";
+    } else {
+        x.className = "header navbar navbar-expand-lg bg-info";
+    }
+}
+</script>
+<script type = "text/javascript">
+	function result()
+	{
+		<?php
+		
+		?>
+	}
+</script>
+</head>
+
+<body onload = "result()">
+<div id="sitebody">
+	<nav id="header" class="header navbar navbar-expand-lg bg-info">
+		<img src="asset/logo_small.png" alt="logo" style="height:100px">
+		<ul class="navbar-nav mr-auto">
+		<a href="index.html"><button class="btn btn-outline-light">Home</button></a> 
+		<a href="restaurantListJS.html"><button class="btn btn-outline-light">Restaurant</button></a>
+		<a href="random.html"><button class="btn btn-outline-light">Random</button></a>
+		<a href="aboutUs.html"><button class="btn btn-outline-light">About Us</button></a>
+		</ul>
+		<form name="UForm" action="search.php" class="form-inline">
+			<input class="form-control mr-sm-2" type="search" placeholder="Type cuisine/district" aria-label="Search">
+			<button class="btn btn-dark my-2 my-sm-0" type="submit">Search</button>
+		</form>
+		<a href="javascript:void(0);" class="icon mx-2" onclick="verticalNav()">
+			<i class="fa fa-bars" style="font-size: 30px; color: #343a40;"></i>
+		</a>
+	</nav>
+	
+	<div id="content" class="content">
+		
+	</div>
+	
+	<div id="footer" class="footer">
+		<div class="FCreator">
+		<i>Designed by:</i><br/>
+			Hui Ka Hung,&nbsp
+			Kwan Wai Kin,&nbsp
+			Li King Wai,<br/>
+			Ng Chi Chun,&nbsp
+			Tsang Chi Kin.
+		</div>
+	</div>
+</div>
+</body>
+>>>>>>> cad282448bb960bbf1935cf292184af4b444f13e
 </html>
