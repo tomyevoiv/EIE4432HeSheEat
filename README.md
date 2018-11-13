@@ -10,6 +10,7 @@ VersionInfo:
 Ver. 1da
 1. Complete basic search function.
 2. Search function is linked to search.php.
+3. Better foldering.
 
 Ver. 1d
 1. Create database to store information of restaurants.
