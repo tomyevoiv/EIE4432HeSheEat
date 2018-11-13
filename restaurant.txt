@@ -1,0 +1,18 @@
+drop database if exists restaurantList;
+
+create database restaurantList;
+
+use restaurantList;
+
+CREATE TABLE `Restaurant`
+(
+	`Code` VARCHAR(10),
+	`Name` VARCHAR(20) NOT NULL,
+	`Cuisine` VARCHAR(20),
+	`District` VARCHAR(10),
+	`Price` VARCHAR(10),
+	`Weighting` INT,
+	PRIMARY KEY (`Name`)
+);
+
+INSERT INTO `Restaurant` VALUES ('', 'Fat Girl Chicken', 'Chinese cuisine', 'Hung Hum', '$50-100', '5');
