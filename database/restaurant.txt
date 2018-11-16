@@ -15,4 +15,14 @@ CREATE TABLE `Restaurant`
 	PRIMARY KEY (`Name`)
 );
 
-INSERT INTO `Restaurant` VALUES ('', 'Fat Girl Chicken', 'Chinese cuisine', 'Hung Hum', '$50-100', '5');
+INSERT INTO `restaurant` (`Code`, `Name`, `Cuisine`, `District`, `Price`, `Weighting`) VALUES
+('vAYTNlN', 'Fat Girl Chicken', 'Chinese', 'Hung Hum', '$50-100', 5),
+(NULL, 'Genki Sushi', 'Japanese', 'Tsim Sha Tsui', '$101-200', 5),
+(NULL, 'Iron Cow', 'Taiwan', 'Tsim Sha Tsui', '$50-100', 5),
+('QqJ21We', 'Mikawaya', 'Japanese', 'Hung Hum', '$50-100', 5),
+(NULL, 'Pastaholic', 'Italian', 'Hung Hum', '$50-100', 5),
+('WtPZmGE', 'Saizeiya WP', 'Italian', 'Hung Hum', '<$50', 5),
+(NULL, 'Sushi Daidai', 'Japanese', 'Hung Hum', '$50-100', 5),
+(NULL, 'Tam Chai TST', 'Chinese', 'Tsim Sha Tsui', '$50-100', 5),
+('ls5g8Tu', 'Tenno Ramen', 'Japanese', 'Hung Hum', '$50-100', 5),
+('81NXzay', 'The Sesame', 'Dessert', 'Hung Hum', '<$50', 5);
