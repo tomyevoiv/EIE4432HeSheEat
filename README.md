@@ -7,6 +7,10 @@ The website also provides a random function which is designed for user cannot de
 
 VersionInfo:
 
+
+Ver. 1db
+1. Update database, which is restaurant.txt.
+
 Ver. 1da
 1. Complete basic search function.
 2. Search function is linked to search.php.
