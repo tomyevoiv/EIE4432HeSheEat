@@ -7,6 +7,9 @@ The website also provides a random function which is designed for user cannot de
 
 VersionInfo:
 
+Ver. 1db(2) = Ver. 1dbb(Due to naming mistake)
+1. Working on random function.
+2. Modify main.css for class used in random.html.
 
 Ver. 1db
 1. Update database, which is restaurant.txt.
