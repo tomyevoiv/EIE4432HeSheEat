@@ -2,13 +2,19 @@
 <html>
 <head>
 <title>Random</title>
+<!-- Main CSS -->
 <link rel="stylesheet" href="main.css"/>
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+<!-- Boostrap -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
             integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
             crossorigin="anonymous">
 </script>
+<!-- W3School Font -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script type = "text/javascript">
 function verticalNav() {
@@ -19,10 +25,44 @@ function verticalNav() {
         x.className = "header navbar navbar-expand-lg bg-info";
     }
 }
+function genCard()
+{
+	$.post("getRestaurant.php",
+		function(data)
+		{
+			var i = 0;
+			var x = 1;
+			data = JSON.parse(data);
+			console.log(data[0]);
+			var hehe="";
+			for(i;i<data.length;i++){
+				hehe+='<div class="card Rcard border-danger transparentBg">';
+				hehe+='<img src="https://i.imgur.com/'+data[i].I+'.png" alt="Image">';
+				hehe+='<div id="CH'+x+'" class="card-header text-danger"></div>';
+				hehe+='<div class="card-body text-danger">';
+				hehe+='<div id="CC'+x+'" class="card-title"></div><p>';
+				hehe+='<span id="CD'+x+'"></span><br/>';
+				hehe+='<span id="CP'+x+'"></span></p>';
+				hehe+='</div></div>';
+				x++;
+			}
+			$("#Rancard").html(hehe);
+			i=0;
+			x=1;
+			for(i;i<data.length;i++){
+				$("#CH"+x).html(data[i].N);
+				$("#CC"+x).html(data[i].C);
+				$("#CD"+x).html(data[i].D);
+				$("#CP"+x).html(data[i].P);
+				x++;
+			}
+		}
+	);
+}
 </script>
 </head>
 
-<body>
+<body onload="genCard()">
 <div id="sitebody">
 	<nav id="header" class="header navbar navbar-expand-lg bg-info">
 		<img src="asset/logo_small.png" alt="logo" style="height:100px">
@@ -41,8 +81,15 @@ function verticalNav() {
 		</a>
 	</nav>
 	
-	<div id="content" class="content">
-	
+	<div id="content" class="Rancontent">
+		<div class = "card transparentBg border-danger">
+			<div class="centerize">	
+				<button class="btn btn-outline-dark">Random</button></a>
+			</div>
+		</div>
+		<div id = "Rancard" class = "Rcontent">
+			
+		</div>
 	</div>
 	
 	<div id="footer" class="footer">

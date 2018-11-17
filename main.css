@@ -91,6 +91,14 @@ body
 	min-height: calc(100vh - 266px);
 }
 
+.Rancontent
+{
+	display: grid;
+	grid-template-columns: 240px auto;
+	grid-gap: 15px;
+	padding: 1rem;
+}
+
 .footer
 {
 	height: 150px;
@@ -109,6 +117,12 @@ body
 {
 	width: 100%;
 }
+
+/* .Rancard
+{
+	width: 280px;
+	height: 300px;
+} */
 
 .card-header
 {
@@ -149,6 +163,13 @@ body
 	padding: 1rem; 
 	border-radius: 25px;
 	background-color: #ffffff;
+}
+
+.centerize 
+{
+    display: block;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .transparentBg
