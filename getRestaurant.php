@@ -7,9 +7,18 @@
 	}
 	
 	$returndata=[];
-	if(!isset($_POST['eatwhere']))
+	if(!isset($_POST['eatwhat']))
 	{
 		$query1="SELECT * FROM restaurant";
+	}elseif($_POST['eatwhat']=="all")
+	{
+		$query1="SELECT * FROM restaurant";
+	}else
+	{
+		$query1="SELECT * FROM restaurant WHERE 
+		Cuisine='".$_POST['eatwhat']."' or
+		District='".$_POST['eatwhat']."' or 
+		Price='".$_POST['eatwhat']."'";
 	}
 	$result1=$conn->query($query1);
 	if(!$result1) die("No information.");

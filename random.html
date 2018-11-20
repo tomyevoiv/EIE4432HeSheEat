@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Random</title>
+<title>Random - HeSheEat</title>
+<link rel="icon" href="https://i.imgur.com/nLtvyR5.png">
 <!-- Main CSS -->
 <link rel="stylesheet" href="main.css"/>
 <!-- jQuery -->
@@ -59,10 +60,40 @@ function genCard()
 		}
 	);
 }
+function paulgor(y)
+{
+	console.log(y+"eee");
+	$.post("getRestaurant.php",
+		{eatwhat:y},
+		function(data)
+		{
+			var i = 0;
+			var x = 1;
+			data = JSON.parse(data);
+			console.log(data[0]);
+			var hehe="";
+			var ran = Math.floor(Math.random()*data.length);
+			console.log(ran);
+			hehe+='<div class="card Rcard border-danger transparentBg">';
+			hehe+='<img src="https://i.imgur.com/'+data[ran].I+'.png" alt="Image">';
+			hehe+='<div id="CH'+x+'" class="card-header text-danger"></div>';
+			hehe+='<div class="card-body text-danger">';
+			hehe+='<div id="CC'+x+'" class="card-title"></div><p>';
+			hehe+='<span id="CD'+x+'"></span><br/>';
+			hehe+='<span id="CP'+x+'"></span></p>';
+			hehe+='</div></div>';
+			$("#Rancard").html(hehe);
+			$("#CH"+x).html(data[ran].N);
+			$("#CC"+x).html(data[ran].C);
+			$("#CD"+x).html(data[ran].D);
+			$("#CP"+x).html(data[ran].P);
+		}
+	);
+}
 </script>
 </head>
 
-<body onload="genCard()">
+<body>
 <div id="sitebody">
 	<nav id="header" class="header navbar navbar-expand-lg bg-info">
 		<img src="asset/logo_small.png" alt="logo" style="height:100px">
@@ -82,12 +113,33 @@ function genCard()
 	</nav>
 	
 	<div id="content" class="Rancontent">
-		<div class = "card transparentBg border-danger">
+		<div class = "card Ransidebar transparentBg border-danger">
+			<form name="RanForm" onsubmit="return false">
 			<div class="centerize">	
-				<button class="btn btn-outline-dark">Random</button></a>
+				<button class="btn btn-outline-dark" onclick="paulgor(RanForm.Choice.value)">Random</button></a>
+			</div>
+			<div>
+				<input type="radio" name="Choice" value="all" checked/>All</br>
+				</br>
+				<title1>Cuisine</title1></br>
+				<input type="radio" name="Choice" value="Chinese"/>Chinese</br>
+				<input type="radio" name="Choice" value="Dessert"/>Dessert</br>
+				<input type="radio" name="Choice" value="France"/>France</br>
+				<input type="radio" name="Choice" value="Italian"/>Italian</br>			
+				<input type="radio" name="Choice" value="Japanese"/>Japanese</br>
+				</br>
+				<title1>District</title1></br>
+				<input type="radio" name="Choice" value="Hung Hum"/>Hung Hum</br>
+				<input type="radio" name="Choice" value="Tsim Sha Tsui"/>Tsim Sha Tsui</br>
+				</br>
+				<title1>Price</title1></br>
+				<input type="radio" name="Choice" value="<$50"/><$50</br>
+				<input type="radio" name="Choice" value="$50-100"/>$50-100</br>
+				<input type="radio" name="Choice" value="$101-200"/>$101-200</br>
+			</form>
 			</div>
 		</div>
-		<div id = "Rancard" class = "Rcontent">
+		<div id = "Rancard" class = "RanRcontent">
 			
 		</div>
 	</div>

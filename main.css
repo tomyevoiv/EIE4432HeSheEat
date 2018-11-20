@@ -73,6 +73,12 @@ body
 	}
 }
 
+/* .sidebar
+{
+	margin: 1rem;
+	color: #dc3545;
+} */
+
 .content
 {
 	padding-top: 1rem;
@@ -91,12 +97,41 @@ body
 	min-height: calc(100vh - 266px);
 }
 
+.Rtopbar
+{
+	height: auto;
+	margin: 1rem 1rem 0 1rem;
+	padding: 1rem;
+	color: #dc3545;
+	max-height: calc(100vh - 266px);
+}
+
 .Rancontent
 {
 	display: grid;
 	grid-template-columns: 240px auto;
 	grid-gap: 15px;
+	padding-left: 1rem;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	min-height: calc(100vh - 266px);
+}
+
+.RanRcontent
+{
+	display: grid;
+	grid-template-columns: repeat(auto-fit, 280px);
+    grid-template-rows: repeat(auto-fit, 300px);
+	grid-gap: 15px;
+	padding-bottom: 1rem;
+	min-height: calc(100vh - 266px);
+}
+
+.Ransidebar
+{
+	color: #dc3545;
 	padding: 1rem;
+	max-height: calc(100vh - 266px);
 }
 
 .footer
@@ -109,7 +144,7 @@ body
 .Rcard
 {
 	width: auto;
-	height: auto;
+	height: 300px;
 	font-size: 1rem;
 }
 
@@ -165,6 +200,11 @@ body
 	background-color: #ffffff;
 }
 
+.barBlock
+{
+	margin: 0 0 0 1rem;
+}
+
 .centerize 
 {
     display: block;
@@ -175,4 +215,10 @@ body
 .transparentBg
 {
 	opacity: 0.9;
+}
+
+title1
+{
+	font-weight: bold;
+	text-decoration: underline;
 }

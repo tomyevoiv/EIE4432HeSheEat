@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Restaurant List</title>
+<title>Restaurant List - HeSheEat</title>
+<link rel="icon" href="https://i.imgur.com/nLtvyR5.png">
 <!-- Main CSS -->
 <link rel="stylesheet" href="main.css"/>
 <!-- jQuery -->
@@ -60,10 +61,11 @@ function genCard()
 		}
 	);
 }
-function paulgor(){
-	console.log(eateat.value+"eee");
+function paulgor(y)
+{
+	console.log(y+"eee");
 	$.post("getRestaurant.php",
-		{eatwhere:eateat.value},
+		{eatwhere:y.value},
 		function(data)
 		{
 			var i = 0;
@@ -85,7 +87,8 @@ function paulgor(){
 			$("#content").html(hehe);
 			i=0;
 			x=1;
-			for(i;i<data.length;i++){
+			for(i;i<data.length;i++)
+			{
 				$("#CH"+x).html(data[i].N);
 				$("#CC"+x).html(data[i].C);
 				$("#CD"+x).html(data[i].D);
@@ -117,6 +120,38 @@ function paulgor(){
 		</a>
 	</nav>
 
+	<div class = "card Rtopbar transparentBg border-danger">
+		<form name="RanForm" onsubmit="return false">
+		<div class="centerize">	
+			<button class="btn btn-outline-dark" onclick="paulgor(RanForm.Choice.value)">Random</button></a>
+		</div>
+		<div class="row">
+			<div class="block barBlock">
+				<input type="radio" name="Choice" value="all" checked/><title1>All</title1>
+			</div>
+			<div class="block barBlock">
+				<title1>Cuisine</title1></br>
+				<input type="radio" name="Choice" value="Chinese"/>Chinese</br>
+				<input type="radio" name="Choice" value="Dessert"/>Dessert</br>
+				<input type="radio" name="Choice" value="France"/>France</br>
+				<input type="radio" name="Choice" value="Italian"/>Italian</br>			
+				<input type="radio" name="Choice" value="Japanese"/>Japanese</br>
+			</div>
+			<div class="block barBlock">
+				<title1>District</title1></br>
+				<input type="radio" name="Choice" value="Hung Hum"/>Hung Hum</br>
+				<input type="radio" name="Choice" value="Tsim Sha Tsui"/>Tsim Sha Tsui</br>
+			</div>
+			<div class="block barBlock">
+				<title1>Price</title1></br>
+				<input type="radio" name="Choice" value="<$50"/><$50</br>
+				<input type="radio" name="Choice" value="$50-100"/>$50-100</br>
+				<input type="radio" name="Choice" value="$101-200"/>$101-200</br>
+			</div>
+		</div>	
+		</form>
+	</div>
+		
 	<div id="content" class="Rcontent">
 	<!-- <span id="on9WKC">123</span> -->	
 	</div>

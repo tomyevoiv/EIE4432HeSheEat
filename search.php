@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Search Result</title>
+<title>Search Result - HeSheEat</title>
+<link rel="icon" href="https://i.imgur.com/nLtvyR5.png">
 <!-- Main CSS -->
 <link rel="stylesheet" href="main.css"/>
 <!-- jQuery -->

@@ -8,8 +8,8 @@ CREATE TABLE `Restaurant`
 (
 	`Code` VARCHAR(10),
 	`Name` VARCHAR(20) NOT NULL,
-	`Cuisine` VARCHAR(20),
-	`District` VARCHAR(10),
+	`Cuisine` VARCHAR(10),
+	`District` VARCHAR(20),
 	`Price` VARCHAR(10),
 	`Weighting` INT,
 	PRIMARY KEY (`Name`)
@@ -25,4 +25,6 @@ INSERT INTO `restaurant` (`Code`, `Name`, `Cuisine`, `District`, `Price`, `Weigh
 ('qHsKktR', 'Sushi Daidai', 'Japanese', 'Hung Hum', '$50-100', 5),
 ('cuaY3S8', 'Tam Chai TST', 'Chinese', 'Tsim Sha Tsui', '$50-100', 5),
 ('ls5g8Tu', 'Tenno Ramen', 'Japanese', 'Hung Hum', '$50-100', 5),
-('81NXzay', 'The Sesame', 'Dessert', 'Hung Hum', '<$50', 5);
+('81NXzay', 'The Sesame', 'Dessert', 'Hung Hum', '<$50', 5),
+('V44nGxA', 'Delifrance', 'France', 'Tsim Sha Tsui', '$50-100', 5),
+('OqPC5Gd', 'Owariya', 'Japanese', 'Hung Hum', '$50-100', 5);
