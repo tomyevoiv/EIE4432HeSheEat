@@ -5,7 +5,21 @@ This website aims to provide a guide of restaurants around The Hong Kong Polytec
 which are Hung Hum and East Tsim Sha Tsui.
 The website also provides a random function which is designed for user cannot decide what to eat.
 
-VersionInfo:
+Features:
+1. List restaurants around The Hong Kong Polytechnic University.
+2. User can search restaurants by entering keywords.
+3. Random function is provided, the function can generate a restaurant according to the attribute the user selected.
+
+Version Update:
+
+Ver. 1f
+1. Complete search function, precise keyword is not required.
+2. Complete category function in restaurantListJS.html.
+3. Category bar in restaurantListJS.html is responsive, default will be an small icon at top right corner of content.
+4. Update database of restaurants.
+
+Ver. 1e
+1. Create basic random function.
 
 Ver. 1db(2) = Ver. 1dbb(Due to naming mistake)
 1. Working on random function.
