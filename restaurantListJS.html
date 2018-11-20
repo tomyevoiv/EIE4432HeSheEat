@@ -17,7 +17,10 @@
 </script>
 <!-- W3School Font -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+</style>
 <script type = "text/javascript">
+<!-- Make the navigation bar responsive -->
 function verticalNav() 
 {
     var x = document.getElementById("header");
@@ -27,6 +30,17 @@ function verticalNav()
         x.className = "header navbar navbar-expand-lg bg-info";
     }
 }
+<!-- Make the top bar responsive -->
+function horizontalBar()
+{
+	var x = document.getElementById("categoryBar");
+	if (x.className === "card Rtopbar transparentBg border-danger responsive") {
+        x.className = "card Rtopbar transparentBg border-danger";
+    } else {
+        x.className = "card Rtopbar transparentBg border-danger responsive";
+    }
+}
+<!-- Get restaurants from database and gen cards -->
 function genCard()
 {
 	$.post("getRestaurant.php",
@@ -35,20 +49,22 @@ function genCard()
 			var i = 0;
 			var x = 1;
 			data = JSON.parse(data);
-			console.log(data[0]);
-			var hehe="";
+			console.log(data);
+			<!-- var ddddd= data.filter(el=>el.C=='Delifrance'); -->
+			<!-- console.log(ddddd); --> 
+			var word="";
 			for(i;i<data.length;i++){
-				hehe+='<div class="card Rcard border-danger transparentBg">';
-				hehe+='<img src="https://i.imgur.com/'+data[i].I+'.png" alt="Image">';
-				hehe+='<div id="CH'+x+'" class="card-header text-danger"></div>';
-				hehe+='<div class="card-body text-danger">';
-				hehe+='<div id="CC'+x+'" class="card-title"></div><p>';
-				hehe+='<span id="CD'+x+'"></span><br/>';
-				hehe+='<span id="CP'+x+'"></span></p>';
-				hehe+='</div></div>';
+				word+='<div class="card Rcard border-danger transparentBg">';
+				word+='<img src="https://i.imgur.com/'+data[i].I+'.png" alt="Image">';
+				word+='<div id="CH'+x+'" class="card-header text-danger"></div>';
+				word+='<div class="card-body text-danger">';
+				word+='<div id="CC'+x+'" class="card-title"></div><p>';
+				word+='<span id="CD'+x+'"></span><br/>';
+				word+='<span id="CP'+x+'"></span></p>';
+				word+='</div></div>';
 				x++;
 			}
-			$("#content").html(hehe);
+			$("#content").html(word);
 			i=0;
 			x=1;
 			for(i;i<data.length;i++){
@@ -61,30 +77,30 @@ function genCard()
 		}
 	);
 }
-function paulgor(y)
+function category(y)
 {
 	console.log(y+"eee");
 	$.post("getRestaurant.php",
-		{eatwhere:y.value},
+		{eatwhat:y},
 		function(data)
 		{
 			var i = 0;
 			var x = 1;
 			data = JSON.parse(data);
 			console.log(data[0]);
-			var hehe="";
+			var word="";
 			for(i;i<data.length;i++){
-				hehe+='<div class="card Rcard border-danger transparentBg">';
-				hehe+='<img src="https://i.imgur.com/'+data[i].I+'.png" alt="Image">';
-				hehe+='<div id="CH'+x+'" class="card-header text-danger"></div>';
-				hehe+='<div class="card-body text-danger">';
-				hehe+='<div id="CC'+x+'" class="card-title"></div><p>';
-				hehe+='<span id="CD'+x+'"></span><br/>';
-				hehe+='<span id="CP'+x+'"></span></p>';
-				hehe+='</div></div>';
+				word+='<div class="card Rcard border-danger transparentBg">';
+				word+='<img src="https://i.imgur.com/'+data[i].I+'.png" alt="Image">';
+				word+='<div id="CH'+x+'" class="card-header text-danger"></div>';
+				word+='<div class="card-body text-danger">';
+				word+='<div id="CC'+x+'" class="card-title"></div><p>';
+				word+='<span id="CD'+x+'"></span><br/>';
+				word+='<span id="CP'+x+'"></span></p>';
+				word+='</div></div>';
 				x++;
 			}
-			$("#content").html(hehe);
+			$("#content").html(word);
 			i=0;
 			x=1;
 			for(i;i<data.length;i++)
@@ -98,6 +114,16 @@ function paulgor(y)
 		}
 	);
 }
+$(function spanClick()
+	{
+		$('span.choice').click(function()
+			{
+				var c = $(this).data('choice');
+				category(c);
+			}
+		);
+	}
+);
 </script>
 </head>
 
@@ -120,35 +146,37 @@ function paulgor(y)
 		</a>
 	</nav>
 
-	<div class = "card Rtopbar transparentBg border-danger">
-		<form name="RanForm" onsubmit="return false">
-		<div class="centerize">	
-			<button class="btn btn-outline-dark" onclick="paulgor(RanForm.Choice.value)">Random</button></a>
-		</div>
-		<div class="row">
-			<div class="block barBlock">
-				<input type="radio" name="Choice" value="all" checked/><title1>All</title1>
+	<div id="categoryBar" class = "card Rtopbar transparentBg border-danger responsive">
+		<form name="RestForm" onsubmit="return false">
+			<a href="javascript:void(0);" class="icon mx-2" onclick="horizontalBar()">
+				<i class="fa fa-bars" style="font-size: 30px; color: #343a40;"></i>
+			</a>
+			<div class="row">
+				<div class="col-sm-3">
+					<span class="choice" data-choice="all"><title1>All</title1></span>
+				</div>
+				<div class="col-sm-3">
+					<title1>Cuisine</title1></br>
+					<span class="choice" data-choice="Chinese">Chinese</span><br>
+					<span class="choice" data-choice="Dessert">Dessert</span><br>
+					<span class="choice" data-choice="France">France</span><br>
+					<span class="choice" data-choice="Italian">Italian</span><br>
+					<span class="choice" data-choice="Japanese">Japanese</span>
+				</div>
+				<div class="col-sm-3">
+					<title1>District</title1></br>
+					<span class="choice" data-choice="Hung Hom">Hung Hom</span></br>
+					<span class="choice" data-choice="Whampoa">Whampoa</span></br>
+					<span class="choice" data-choice="Tsim Sha Tsui">Tsim Sha Tsui</span>
+				</div>
+				<div class="col-sm-2">
+					<title1>Price</title1></br>
+					<span class="choice" data-choice="<$50"><$50</span></br>
+					<span class="choice" data-choice="$51-100">$51-100</span></br>
+					<span class="choice" data-choice="$101-200">$101-200</span></br>
+					<span class="choice" data-choice="$201-400">$201-400</span>
+				</div>
 			</div>
-			<div class="block barBlock">
-				<title1>Cuisine</title1></br>
-				<input type="radio" name="Choice" value="Chinese"/>Chinese</br>
-				<input type="radio" name="Choice" value="Dessert"/>Dessert</br>
-				<input type="radio" name="Choice" value="France"/>France</br>
-				<input type="radio" name="Choice" value="Italian"/>Italian</br>			
-				<input type="radio" name="Choice" value="Japanese"/>Japanese</br>
-			</div>
-			<div class="block barBlock">
-				<title1>District</title1></br>
-				<input type="radio" name="Choice" value="Hung Hum"/>Hung Hum</br>
-				<input type="radio" name="Choice" value="Tsim Sha Tsui"/>Tsim Sha Tsui</br>
-			</div>
-			<div class="block barBlock">
-				<title1>Price</title1></br>
-				<input type="radio" name="Choice" value="<$50"/><$50</br>
-				<input type="radio" name="Choice" value="$50-100"/>$50-100</br>
-				<input type="radio" name="Choice" value="$101-200"/>$101-200</br>
-			</div>
-		</div>	
 		</form>
 	</div>
 		
@@ -167,5 +195,8 @@ function paulgor(y)
 		</div>
 	</div>
 </div>
+<script>
+
+</script>
 </body>
 </html>

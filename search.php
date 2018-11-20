@@ -46,15 +46,16 @@ function verticalNav() {
 		}else if($_POST['eatwhat']=="")
 		{
 			$query1="SELECT * FROM restaurant";
-		}else if ($_POST['eatwhat']==" ")
+		}else if (!preg_match('/[a-zA-Z0-9]+/', $_POST['eatwhat']))
 		{
 			$query1="SELECT * FROM restaurant";
 		}else
 		{
-			$query1="SELECT * FROM restaurant WHERE Cuisine='".$_POST['eatwhat']."' or 
-			Name='".$_POST['eatwhat']."' or 
-			District='".$_POST['eatwhat']."' or 
-			Price='".$_POST['eatwhat']."'";
+			$query1="SELECT * FROM restaurant WHERE 
+			Cuisine LIKE '%".$_POST['eatwhat']."%' or 
+			Name LIKE '%".$_POST['eatwhat']."%' or 
+			District LIKE '%".$_POST['eatwhat']."%' or 
+			Price LIKE '%".$_POST['eatwhat']."%'";
 		}
 		$result1=$conn->query($query1);
 		if(!$result1) die("No information.");

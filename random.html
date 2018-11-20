@@ -35,19 +35,19 @@ function genCard()
 			var x = 1;
 			data = JSON.parse(data);
 			console.log(data[0]);
-			var hehe="";
+			var word="";
 			for(i;i<data.length;i++){
-				hehe+='<div class="card Rcard border-danger transparentBg">';
-				hehe+='<img src="https://i.imgur.com/'+data[i].I+'.png" alt="Image">';
-				hehe+='<div id="CH'+x+'" class="card-header text-danger"></div>';
-				hehe+='<div class="card-body text-danger">';
-				hehe+='<div id="CC'+x+'" class="card-title"></div><p>';
-				hehe+='<span id="CD'+x+'"></span><br/>';
-				hehe+='<span id="CP'+x+'"></span></p>';
-				hehe+='</div></div>';
+				word+='<div class="card Rcard border-danger transparentBg">';
+				word+='<img src="https://i.imgur.com/'+data[i].I+'.png" alt="Image">';
+				word+='<div id="CH'+x+'" class="card-header text-danger"></div>';
+				word+='<div class="card-body text-danger">';
+				word+='<div id="CC'+x+'" class="card-title"></div><p>';
+				word+='<span id="CD'+x+'"></span><br/>';
+				word+='<span id="CP'+x+'"></span></p>';
+				word+='</div></div>';
 				x++;
 			}
-			$("#Rancard").html(hehe);
+			$("#Rancard").html(word);
 			i=0;
 			x=1;
 			for(i;i<data.length;i++){
@@ -60,7 +60,7 @@ function genCard()
 		}
 	);
 }
-function paulgor(y)
+function ranGenCard(y)
 {
 	console.log(y+"eee");
 	$.post("getRestaurant.php",
@@ -71,18 +71,18 @@ function paulgor(y)
 			var x = 1;
 			data = JSON.parse(data);
 			console.log(data[0]);
-			var hehe="";
+			var word="";
 			var ran = Math.floor(Math.random()*data.length);
 			console.log(ran);
-			hehe+='<div class="card Rcard border-danger transparentBg">';
-			hehe+='<img src="https://i.imgur.com/'+data[ran].I+'.png" alt="Image">';
-			hehe+='<div id="CH'+x+'" class="card-header text-danger"></div>';
-			hehe+='<div class="card-body text-danger">';
-			hehe+='<div id="CC'+x+'" class="card-title"></div><p>';
-			hehe+='<span id="CD'+x+'"></span><br/>';
-			hehe+='<span id="CP'+x+'"></span></p>';
-			hehe+='</div></div>';
-			$("#Rancard").html(hehe);
+			word+='<div class="card Rcard border-danger transparentBg">';
+			word+='<img src="https://i.imgur.com/'+data[ran].I+'.png" alt="Image">';
+			word+='<div id="CH'+x+'" class="card-header text-danger"></div>';
+			word+='<div class="card-body text-danger">';
+			word+='<div id="CC'+x+'" class="card-title"></div><p>';
+			word+='<span id="CD'+x+'"></span><br/>';
+			word+='<span id="CP'+x+'"></span></p>';
+			word+='</div></div>';
+			$("#Rancard").html(word);
 			$("#CH"+x).html(data[ran].N);
 			$("#CC"+x).html(data[ran].C);
 			$("#CD"+x).html(data[ran].D);
@@ -115,32 +115,33 @@ function paulgor(y)
 	<div id="content" class="Rancontent">
 		<div class = "card Ransidebar transparentBg border-danger">
 			<form name="RanForm" onsubmit="return false">
-			<div class="centerize">	
-				<button class="btn btn-outline-dark" onclick="paulgor(RanForm.Choice.value)">Random</button></a>
+			<div class="Bcenterize">	
+				<button class="btn btn-outline-danger" onclick="ranGenCard(RanForm.Choice.value)">Random</button></a>
 			</div>
 			<div>
-				<input type="radio" name="Choice" value="all" checked/>All</br>
+				<input type="radio" name="Choice" value="all" checked/>All
 				</br>
 				<title1>Cuisine</title1></br>
 				<input type="radio" name="Choice" value="Chinese"/>Chinese</br>
 				<input type="radio" name="Choice" value="Dessert"/>Dessert</br>
 				<input type="radio" name="Choice" value="France"/>France</br>
 				<input type="radio" name="Choice" value="Italian"/>Italian</br>			
-				<input type="radio" name="Choice" value="Japanese"/>Japanese</br>
+				<input type="radio" name="Choice" value="Japanese"/>Japanese
 				</br>
 				<title1>District</title1></br>
-				<input type="radio" name="Choice" value="Hung Hum"/>Hung Hum</br>
-				<input type="radio" name="Choice" value="Tsim Sha Tsui"/>Tsim Sha Tsui</br>
+				<input type="radio" name="Choice" value="Hung Hom"/>Hung Hom</br>
+				<input type="radio" name="Choice" value="Whampoa"/>Whampoa</br>
+				<input type="radio" name="Choice" value="Tsim Sha Tsui"/>Tsim Sha Tsui
 				</br>
 				<title1>Price</title1></br>
 				<input type="radio" name="Choice" value="<$50"/><$50</br>
-				<input type="radio" name="Choice" value="$50-100"/>$50-100</br>
+				<input type="radio" name="Choice" value="$51-100"/>$51-100</br>
 				<input type="radio" name="Choice" value="$101-200"/>$101-200</br>
+				<input type="radio" name="Choice" value="$201-400"/>$201-400
 			</form>
 			</div>
 		</div>
 		<div id = "Rancard" class = "RanRcontent">
-			
 		</div>
 	</div>
 	

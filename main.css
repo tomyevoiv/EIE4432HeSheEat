@@ -84,7 +84,7 @@ body
 	padding-top: 1rem;
 	padding-left: 1rem;
 	padding-right: 1rem;
-	min-height: calc(100vh - 266px);
+	min-height: calc(100vh - 256px);
 }
 
 .Rcontent
@@ -94,7 +94,7 @@ body
     grid-template-rows: repeat(auto-fit, 300px);
 	grid-gap: 15px;
 	padding: 1rem;
-	min-height: calc(100vh - 266px);
+	min-height: calc(100vh - 256px);
 }
 
 .Rtopbar
@@ -103,7 +103,25 @@ body
 	margin: 1rem 1rem 0 1rem;
 	padding: 1rem;
 	color: #dc3545;
-	max-height: calc(100vh - 266px);
+}
+
+.Rtopbar a
+{
+	position: absolute;
+	right: 0;
+}
+
+.Rtopbar.responsive
+{
+	position: absolute;
+	right: 0;
+	width: 45px;
+	height: 60px;
+}
+
+.Rtopbar.responsive div
+{
+	display: none;
 }
 
 .Rancontent
@@ -114,7 +132,7 @@ body
 	padding-left: 1rem;
 	padding-top: 1rem;
 	padding-bottom: 1rem;
-	min-height: calc(100vh - 266px);
+	min-height: calc(100vh - 256px);
 }
 
 .RanRcontent
@@ -124,19 +142,18 @@ body
     grid-template-rows: repeat(auto-fit, 300px);
 	grid-gap: 15px;
 	padding-bottom: 1rem;
-	min-height: calc(100vh - 266px);
 }
 
 .Ransidebar
 {
 	color: #dc3545;
 	padding: 1rem;
-	max-height: calc(100vh - 266px);
+	height: 100vh - 266px;
 }
 
 .footer
 {
-	height: 150px;
+	height: 140px;
 	background-color: #17a2b8;
 	opacity: 0.9;
 }
@@ -209,12 +226,27 @@ body
 {
     display: block;
     margin: 0 auto;
+}
+
+.Bcenterize 
+{
+    display: block;
+    margin: auto auto;
     text-align: center;
 }
 
 .transparentBg
 {
 	opacity: 0.9;
+}
+
+.choice
+{
+	cursor: pointer;
+}
+.choice:hover
+{
+	color: blue;
 }
 
 title1
