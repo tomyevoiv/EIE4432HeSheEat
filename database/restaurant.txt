@@ -15,7 +15,7 @@ CREATE TABLE `Restaurant`
 	PRIMARY KEY (`Name`)
 );
 
-INSERT INTO `restaurant` (`Code`, `Name`, `Cuisine`, `District`, `Price`, `Weighting`) VALUES
+INSERT INTO `Restaurant` (`Code`, `Name`, `Cuisine`, `District`, `Price`, `Weighting`) VALUES
 (NULL, 'California Pizza Kitchen', 'Western', 'Whampoa', '$51-100', 5),
 ('V44nGxA', 'Delifrance', 'France', 'Tsim Sha Tsui', '$51-100', 5),
 (NULL, 'Dondonya', 'Japanese', 'Whampoa', '$51-100', 5),
