@@ -7,7 +7,7 @@ use restaurantList;
 CREATE TABLE `Restaurant`
 (
 	`Code` VARCHAR(10),
-	`Name` VARCHAR(20) NOT NULL,
+	`Name` VARCHAR(30) NOT NULL,
 	`Cuisine` VARCHAR(10),
 	`District` VARCHAR(20),
 	`Price` VARCHAR(10),
