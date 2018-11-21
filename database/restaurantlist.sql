@@ -65,7 +65,7 @@ INSERT INTO `restaurant` (`Code`, `Name`, `Cuisine`, `District`, `Price`, `Weigh
 (NULL, 'Pepper Lunch', 'Japanese', 'Whampoa', '$51-100', 5),
 (NULL, 'Pizza Hut', 'Italian', 'Whampoa', '$51-100', 5),
 ('WtPZmGE', 'Saizeiya WP', 'Italian', 'Whampoa', '<$50', 5),
-(NULL, 'Soup plus', 'Chinese', 'Hung Hom', '$51-100', 5),
+(NULL, 'Soup plus', 'Chinese', 'Whampoa', '$51-100', 5),
 ('qHsKktR', 'Sushi Daidai', 'Japanese', 'Hung Hom', '$51-100', 5),
 (NULL, 'Tam Chai SamGor Mixian ETST', 'Chinese', 'Tsim Sha Tsui', '$51-100', 5),
 (NULL, 'Tam Chai SamGor Mixian WP', 'Chinese', 'Whampoa', '$51-100', 5),
@@ -73,7 +73,7 @@ INSERT INTO `restaurant` (`Code`, `Name`, `Cuisine`, `District`, `Price`, `Weigh
 (NULL, 'TeaWood', 'Taiwan', 'Whampoa', '$51-100', 5),
 ('ls5g8Tu', 'Tenno Ramen', 'Japanese', 'Hung Hom', '$51-100', 5),
 ('81NXzay', 'The Sesame', 'Dessert', 'Hung Hom', '<$50', 5),
-(NULL, 'Yumai', 'Chinese', 'Whampoa', '$51-100', 5);
+(NULL, 'Yumai', 'Chinese', 'Hung Hom', '$51-100', 5);
 
 --
 -- 转储表的索引
