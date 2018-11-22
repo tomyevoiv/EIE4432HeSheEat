@@ -12,6 +12,9 @@ Features:
 
 Version Update:
 
+Ver. 1g
+1. Completing the pagnigation function.
+
 Ver. 1f
 1. Complete search function, precise keyword is not required.
 2. Complete category function in restaurantListJS.html.

@@ -46,6 +46,7 @@ function genCard()
 	$.post("getRestaurant.php",
 		function(data)
 		{
+			
 			var i = 0;
 			var x = 1;
 			data = JSON.parse(data);
@@ -53,16 +54,35 @@ function genCard()
 			<!-- var ddddd= data.filter(el=>el.C=='Delifrance'); -->
 			<!-- console.log(ddddd); --> 
 			var word="";
-			for(i;i<data.length;i++){
-				word+='<div class="card Rcard border-danger transparentBg">';
-				word+='<img src="https://i.imgur.com/'+data[i].I+'.png" alt="Image">';
-				word+='<div id="CH'+x+'" class="card-header text-danger"></div>';
-				word+='<div class="card-body text-danger">';
-				word+='<div id="CC'+x+'" class="card-title"></div><p>';
-				word+='<span id="CD'+x+'"></span><br/>';
-				word+='<span id="CP'+x+'"></span></p>';
-				word+='</div></div>';
-				x++;
+			if(data.length>12)
+			{
+				for(i;i<11;i++)
+				{
+					word+='<div class="card Rcard border-danger transparentBg">';
+					word+='<img src="https://i.imgur.com/'+data[i].I+'.png" alt="Image">';
+					word+='<div id="CH'+x+'" class="card-header text-danger"></div>';
+					word+='<div class="card-body text-danger">';
+					word+='<div id="CC'+x+'" class="card-title"></div><p>';
+					word+='<span id="CD'+x+'"></span><br/>';
+					word+='<span id="CP'+x+'"></span></p>';
+					word+='</div></div>';
+					x++;
+					
+				}
+			}else
+			{
+				for(i;i<data.length;i++)
+				{
+					word+='<div class="card Rcard border-danger transparentBg">';
+					word+='<img src="https://i.imgur.com/'+data[i].I+'.png" alt="Image">';
+					word+='<div id="CH'+x+'" class="card-header text-danger"></div>';
+					word+='<div class="card-body text-danger">';
+					word+='<div id="CC'+x+'" class="card-title"></div><p>';
+					word+='<span id="CD'+x+'"></span><br/>';
+					word+='<span id="CP'+x+'"></span></p>';
+					word+='</div></div>';
+					x++;
+				}
 			}
 			$("#content").html(word);
 			i=0;
@@ -124,13 +144,14 @@ $(function spanClick()
 		);
 	}
 );
+
 </script>
 </head>
 
 <body onload="genCard()">
 <div id="sitebody">
 	<nav id="header" class="header navbar navbar-expand-lg bg-info">
-		<img src="asset/logo_small.png" alt="logo" style="height:100px">
+		<a href="index.html"><img src="asset/logo_small.png" alt="logo" style="height:100px"></a>
 		<ul class="navbar-nav mr-auto">
 		<a href="index.html"><button class="btn btn-outline-light">Home</button></a> 
 		<a href="restaurantListJS.html"><button class="btn btn-outline-light active">Restaurant</button></a>
@@ -149,7 +170,7 @@ $(function spanClick()
 	<div id="categoryBar" class = "card Rtopbar transparentBg border-danger responsive">
 		<form name="RestForm" onsubmit="return false">
 			<a href="javascript:void(0);" class="icon mx-2" onclick="horizontalBar()">
-				<i class="fa fa-bars" style="font-size: 30px; color: #343a40;"></i>
+				<i class="fa fa-filter" style="font-size: 30px; color: #343a40;"></i>
 			</a>
 			<div class="row">
 				<div class="col-sm-3">
@@ -184,6 +205,15 @@ $(function spanClick()
 	<!-- <span id="on9WKC">123</span> -->	
 	</div>
 	
+	<div class="text-center">
+		<div class="Rpagination transparentBg">
+			<a href="#">&laquo;</a>
+			<a href="#">1</a>
+			<a href="#" class="active">2</a>
+			<a href="#">&raquo;</a>
+		</div>
+	</div>
+	
 	<div id="footer" class="footer">
 		<div class="FCreator">
 		<i>Designed by:</i><br/>
@@ -195,8 +225,5 @@ $(function spanClick()
 		</div>
 	</div>
 </div>
-<script>
-
-</script>
 </body>
 </html>

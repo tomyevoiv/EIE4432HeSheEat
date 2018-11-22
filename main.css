@@ -17,11 +17,12 @@ body
 {
 	overflow: hidden;
 	opacity: 0.8;
+	min-height: 116px
 }
 
 .header a
 {
-	padding: 0.5rem;
+	padding: 0.2rem 0.5rem 0 0.2rem;
 }
 
 .header .icon
@@ -84,7 +85,7 @@ body
 	padding-top: 1rem;
 	padding-left: 1rem;
 	padding-right: 1rem;
-	min-height: calc(100vh - 256px);
+	min-height: calc(100vh - 259px);
 }
 
 .Rcontent
@@ -94,7 +95,7 @@ body
     grid-template-rows: repeat(auto-fit, 300px);
 	grid-gap: 15px;
 	padding: 1rem;
-	min-height: calc(100vh - 256px);
+	min-height: calc(100vh - 259px);
 }
 
 .Rtopbar
@@ -115,7 +116,7 @@ body
 {
 	position: absolute;
 	right: 0;
-	width: 45px;
+	width: 42px;
 	height: 60px;
 }
 
@@ -132,7 +133,7 @@ body
 	padding-left: 1rem;
 	padding-top: 1rem;
 	padding-bottom: 1rem;
-	min-height: calc(100vh - 256px);
+	min-height: calc(100vh - 259px);
 }
 
 .RanRcontent
@@ -156,6 +157,32 @@ body
 	height: 140px;
 	background-color: #17a2b8;
 	opacity: 0.9;
+}
+
+.Rpagination
+{
+	height: 60px;
+	margin: 1rem;
+	display: inline-block;
+    background-color: #FFFFFF;
+	border: 1px solid #dc3545;
+	border-radius: 5px;
+}
+
+.Rpagination a
+{
+	float: left;
+	color:  #dc3545;
+	margin: 1rem;
+	padding: 0 1rem 0 1rem;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.Rpagination a.active 
+{
+	background-color: #17a2b8;
+	border-radius: 5px;
 }
 
 .Rcard
@@ -222,10 +249,9 @@ body
 	margin: 0 0 0 1rem;
 }
 
-.centerize 
+.centerize
 {
-    display: block;
-    margin: 0 auto;
+	text-align: center;
 }
 
 .Bcenterize 
@@ -246,7 +272,7 @@ body
 }
 .choice:hover
 {
-	color: blue;
+	color: #17a2b8;
 }
 
 title1
