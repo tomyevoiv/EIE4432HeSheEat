@@ -26,40 +26,6 @@ function verticalNav() {
         x.className = "header navbar navbar-expand-lg bg-info";
     }
 }
-function genCard()
-{
-	$.post("getRestaurant.php",
-		function(data)
-		{
-			var i = 0;
-			var x = 1;
-			data = JSON.parse(data);
-			console.log(data[0]);
-			var word="";
-			for(i;i<data.length;i++){
-				word+='<div class="card Rcard border-danger transparentBg">';
-				word+='<img src="https://i.imgur.com/'+data[i].I+'.png" alt="Image">';
-				word+='<div id="CH'+x+'" class="card-header text-danger"></div>';
-				word+='<div class="card-body text-danger">';
-				word+='<div id="CC'+x+'" class="card-title"></div><p>';
-				word+='<span id="CD'+x+'"></span><br/>';
-				word+='<span id="CP'+x+'"></span></p>';
-				word+='</div></div>';
-				x++;
-			}
-			$("#Rancard").html(word);
-			i=0;
-			x=1;
-			for(i;i<data.length;i++){
-				$("#CH"+x).html(data[i].N);
-				$("#CC"+x).html(data[i].C);
-				$("#CD"+x).html(data[i].D);
-				$("#CP"+x).html(data[i].P);
-				x++;
-			}
-		}
-	);
-}
 function ranGenCard(y)
 {
 	console.log(y+"eee");
@@ -94,7 +60,6 @@ function ranGenCard(y)
 </head>
 
 <body>
-<div id="sitebody">
 	<nav id="header" class="header navbar navbar-expand-lg bg-info">
 		<a href="index.html"><img src="asset/logo_small.png" alt="logo" style="height:100px"></a>
 		<ul class="navbar-nav mr-auto">
@@ -126,7 +91,8 @@ function ranGenCard(y)
 				<input type="radio" name="Choice" value="Dessert"/>Dessert</br>
 				<input type="radio" name="Choice" value="France"/>France</br>
 				<input type="radio" name="Choice" value="Italian"/>Italian</br>			
-				<input type="radio" name="Choice" value="Japanese"/>Japanese</br>	
+				<input type="radio" name="Choice" value="Japanese"/>Japanese</br>
+				<input type="radio" name="Choice" value="Taiwan"/>Taiwan</br>				
 				</br>
 				<title1>District</title1></br>
 				<input type="radio" name="Choice" value="Hung Hom"/>Hung Hom</br>
@@ -155,6 +121,5 @@ function ranGenCard(y)
 			Tsang Chi Kin.
 		</div>
 	</div>
-</div>
 </body>
 </html>

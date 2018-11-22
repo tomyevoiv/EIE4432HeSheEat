@@ -12,6 +12,9 @@ Features:
 
 Version Update:
 
+Ver. 1h
+1. Complete basic pagnigation function. (Next version will replace restaurant list and random with php rathar than html.)
+
 Ver. 1g
 1. Completing the pagnigation function.
 

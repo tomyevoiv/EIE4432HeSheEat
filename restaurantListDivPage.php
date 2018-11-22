@@ -17,6 +17,8 @@
 </script>
 <!-- W3School Font -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+</style>
 <script type = "text/javascript">
 <!-- Make the navigation bar responsive -->
 function verticalNav() 
@@ -37,6 +39,63 @@ function horizontalBar()
     } else {
         x.className = "card Rtopbar transparentBg border-danger responsive";
     }
+}
+function page()
+{
+	var y = "<?php echo $_GET["choice"] ?>";
+	var p = "<?php echo $_GET["page"] ?>";
+	$.post("getRestaurant.php",
+		{eatwhat:y/* , page: p */},
+		function(data)
+		{
+			var i = -12+12*p;
+			var x = 1;
+			data = JSON.parse(data);
+			console.log(data[0]);
+			var word="";
+			for(var k = 0;k<12;k++)
+			{
+				if(!data[k+i])break;
+				word+='<div class="card Rcard border-danger transparentBg">';
+				word+='<img src="https://i.imgur.com/'+data[k+i].I+'.png" alt="Image">';
+				word+='<div id="CH'+x+'" class="card-header text-danger"></div>';
+				word+='<div class="card-body text-danger">';
+				word+='<div id="CC'+x+'" class="card-title"></div><p>';
+				word+='<span id="CD'+x+'"></span><br/>';
+				word+='<span id="CP'+x+'"></span></p>';
+				word+='</div></div>';
+				x++;
+			}
+			$("#content").html(word);
+			i = -12+12*p;
+			x = 1;
+			for(var k = 0;k<12;k++)
+			{
+				if(!data[k+i])break;
+				$("#CH"+x).html(data[k+i].N);
+				$("#CC"+x).html(data[k+i].C);
+				$("#CD"+x).html(data[k+i].D);
+				$("#CP"+x).html(data[k+i].P);
+				x++;
+			}
+			
+			// Generate pagination
+			var pageWord="";
+			var maxPage = Math.ceil(data.length/12);
+			console.log(maxPage);
+			pageWord+='<div class="Rpagination transparentBg">'
+			if(p!=1) {p--; pageWord+='<a href="restaurantListDivPage.php?choice='+y+'&page='+p+'">&laquo;</a>'; p++;}
+			i=1;
+			for(i;i<=maxPage;i++)
+			{
+				pageWord+="<a href='restaurantListDivPage.php?choice="+y+"&page="+i+"'>"+i+"</a>";
+			}
+			if(p<maxPage) {pageWord+="<a href='restaurantListDivPage.php?choice="+y+"&page="+i+"'>&raquo;</a>";}
+			pageWord+="</div>";
+			// console.log(pageWord);
+			$("#pagination").html(pageWord);
+		}
+	);	
 }
 function category(y,p)
 {
@@ -115,7 +174,7 @@ $(function spanClick()
 </script>
 </head>
 
-<body onload="category()">
+<body onload="page()">
 	<nav id="header" class="header navbar navbar-expand-lg bg-info">
 		<a href="index.html"><img src="asset/logo_small.png" alt="logo" style="height:100px"></a>
 		<ul class="navbar-nav mr-auto">
@@ -132,7 +191,7 @@ $(function spanClick()
 			<i class="fa fa-bars" style="font-size: 30px; color: #343a40;"></i>
 		</a>
 	</nav>
-
+	
 	<div id="categoryBar" class = "card Rtopbar transparentBg border-danger responsive">
 		<form name="RestForm" onsubmit="return false">
 			<a href="javascript:void(0);" class="icon mx-2" onclick="horizontalBar()">
@@ -167,7 +226,7 @@ $(function spanClick()
 			</div>
 		</form>
 	</div>
-		
+	
 	<div id="content" class="Rcontent">
 	<!-- <span id="on9WKC">123</span> -->	
 	</div>
@@ -179,10 +238,10 @@ $(function spanClick()
 	<div id="footer" class="footer">
 		<div class="FCreator">
 		<i>Designed by:</i><br/>
-			Hui Ka Hung, 
-			Kwan Wai Kin, 
+			Hui Ka Hung,&nbsp
+			Kwan Wai Kin,&nbsp
 			Li King Wai,<br/>
-			Ng Chi Chun, 
+			Ng Chi Chun,&nbsp
 			Tsang Chi Kin.
 		</div>
 	</div>
