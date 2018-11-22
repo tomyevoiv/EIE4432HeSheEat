@@ -90,6 +90,7 @@ function page()
 			{
 				pageWord+="<a href='restaurantListDivPage.php?choice="+y+"&page="+i+"'>"+i+"</a>";
 			}
+			i=p;i++;
 			if(p<maxPage) {pageWord+="<a href='restaurantListDivPage.php?choice="+y+"&page="+i+"'>&raquo;</a>";}
 			pageWord+="</div>";
 			// console.log(pageWord);
