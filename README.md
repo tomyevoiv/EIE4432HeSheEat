@@ -12,6 +12,10 @@ Features:
 
 Version Update:
 
+Ver. 1i
+1. Combine restaurantListJS and restaurantListDivPage.php.
+2. Create random restaurant history in random.html.
+
 Ver. 1h
 1. Complete basic pagnigation function. (Next version will replace restaurant list and random with php rathar than html.)
 

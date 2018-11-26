@@ -136,13 +136,29 @@ body
 	min-height: calc(100vh - 259px);
 }
 
-.RanRcontent
+.RanCcontent
 {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, 280px);
     grid-template-rows: repeat(auto-fit, 300px);
 	grid-gap: 15px;
 	padding-bottom: 1rem;
+}
+
+.RanHistory
+{
+	padding: 1rem;
+	height:220px;
+	margin: 0 1rem 1rem 1rem; 
+}
+
+.RanCHistory
+{
+	display: grid;
+	grid-template-columns: repeat(auto-fit, 84px);
+    grid-template-rows: repeat(auto-fit, 90px);
+	grid-gap: 5px;
+	overflow: hidden;
 }
 
 .Ransidebar
@@ -161,7 +177,7 @@ body
 
 .Rpagination
 {
-	height: 60px;
+	height: 65px;
 	margin: 1rem;
 	display: inline-block;
     background-color: #FFFFFF;
@@ -179,9 +195,15 @@ body
 	font-size: 20px;
 }
 
+.Rpagination a:hover
+{
+	color: orange;
+	text-decoration: none;
+}
+
 .Rpagination a.active 
 {
-	background-color: #17a2b8;
+	border: 1px solid #17a2b8;
 	border-radius: 5px;
 }
 
@@ -203,12 +225,30 @@ body
 	height: 300px;
 } */
 
+.Hiscard
+{
+	width: auto;
+	height: 90px;
+	font-size: 0.6rem !important;
+	font-weight: 700 !important;
+	padding: 0 !important;
+}
+
+.Hiscard .card-header
+{
+}
+
+.Hiscard img
+{
+	width: 100%;
+}
+
 .card-header
 {
 	width: 100%;
 	padding: 0.2rem !important;
-	padding-left: 1rem !important;
-	font-size: 1.3rem;
+	padding-left: 0.3rem !important;
+	font-size: 1.1rem;
 	font-weight: bold;
 }
 

@@ -26,35 +26,67 @@ function verticalNav() {
         x.className = "header navbar navbar-expand-lg bg-info";
     }
 }
+var HiscardN = 1;
 function ranGenCard(y)
 {
 	console.log(y+"eee");
-	$.post("getRestaurant.php",
+	var index = 0;
+	var target = "";
+	var store = [];
+	$.post("getWeighting.php",
 		{eatwhat:y},
 		function(data)
 		{
-			var i = 0;
-			var x = 1;
 			data = JSON.parse(data);
-			console.log(data[0]);
-			var word="";
-			var ran = Math.floor(Math.random()*data.length);
+			console.log(data);
+			for(var i = 0 ; i < data.length ; i++)
+			{
+				for(var k = 0 ; k < data[i].W ; k++)
+				{
+					store[index]=data[i].N;
+					index++;
+				}
+			}
+			console.log(index);
+			var ran = Math.floor(Math.random()*index);
 			console.log(ran);
-			word+='<div class="card Rcard border-danger transparentBg">';
-			word+='<img src="https://i.imgur.com/'+data[ran].I+'.png" alt="Image">';
-			word+='<div id="CH'+x+'" class="card-header text-danger"></div>';
-			word+='<div class="card-body text-danger">';
-			word+='<div id="CC'+x+'" class="card-title"></div><p>';
-			word+='<span id="CD'+x+'"></span><br/>';
-			word+='<span id="CP'+x+'"></span></p>';
-			word+='</div></div>';
-			$("#Rancard").html(word);
-			$("#CH"+x).html(data[ran].N);
-			$("#CC"+x).html(data[ran].C);
-			$("#CD"+x).html(data[ran].D);
-			$("#CP"+x).html(data[ran].P);
+			target = store[ran];
+			console.log(target);
+			$.post("getRestaurant.php",
+				{eatwhat:target},
+			function(data)
+			{
+				var i = 0;
+				var x = 1;
+				data = JSON.parse(data);
+				console.log(data);
+				var word="";
+				var his=document.getElementById("RanCHistory").innerHTML;
+				var tempHis="";
+				word+='<div class="card Rcard border-danger transparentBg">';
+				word+='<img src="https://i.imgur.com/'+data[0].I+'.png" alt="Image">';
+				word+='<div id="CH'+x+'" class="card-header text-danger"></div>';
+				word+='<div class="card-body text-danger">';
+				word+='<div id="CC'+x+'" class="card-title"></div><p>';
+				word+='<span id="CD'+x+'"></span><br/>';
+				word+='<span id="CP'+x+'"></span></p>';
+				word+='</div></div>';
+				$("#Rancard").html(word);
+				$("#CH"+x).html(data[0].N);
+				$("#CC"+x).html(data[0].C);
+				$("#CD"+x).html(data[0].D);
+				$("#CP"+x).html(data[0].P);
+				tempHis+='<div class="card Hiscard border-danger transparentBg">';
+				tempHis+='<img src="https://i.imgur.com/'+data[0].I+'.png" alt="Image">';
+				tempHis+='<div id="CHH'+HiscardN+'" class="text-danger"></div></div>';
+				his = tempHis + his;
+				$("#RanCHistory").html(his)
+				$("#CHH"+HiscardN).html(data[0].N);
+				HiscardN++;
+				}
+			);
 		}
-	);
+	);	
 }
 </script>
 </head>
@@ -79,35 +111,42 @@ function ranGenCard(y)
 	
 	<div id="content" class="Rancontent">
 		<div class = "card Ransidebar transparentBg border-danger">
-			<form name="RanForm" onsubmit="return false">
-			<div class="Bcenterize">	
-				<button class="btn btn-outline-danger" onclick="ranGenCard(RanForm.Choice.value)">Random</button></a>
-			</div>
 			<div>
-				<input type="radio" name="Choice" value="all" checked/>All</br>
-				</br>
-				<title1>Cuisine</title1></br>
-				<input type="radio" name="Choice" value="Chinese"/>Chinese</br>
-				<input type="radio" name="Choice" value="Dessert"/>Dessert</br>
-				<input type="radio" name="Choice" value="France"/>France</br>
-				<input type="radio" name="Choice" value="Italian"/>Italian</br>			
-				<input type="radio" name="Choice" value="Japanese"/>Japanese</br>
-				<input type="radio" name="Choice" value="Taiwan"/>Taiwan</br>				
-				</br>
-				<title1>District</title1></br>
-				<input type="radio" name="Choice" value="Hung Hom"/>Hung Hom</br>
-				<input type="radio" name="Choice" value="Whampoa"/>Whampoa</br>
-				<input type="radio" name="Choice" value="Tsim Sha Tsui"/>Tsim Sha Tsui</br>
-				</br>
-				<title1>Price</title1></br>
-				<input type="radio" name="Choice" value="<$50"/><$50</br>
-				<input type="radio" name="Choice" value="$51-100"/>$51-100</br>
-				<input type="radio" name="Choice" value="$101-200"/>$101-200</br>
-				<input type="radio" name="Choice" value="$201-400"/>$201-400</br>
-			</form>
+				<div class="Bcenterize">	
+					<button class="btn btn-outline-danger" onclick="ranGenCard(RanFormC.Choice.value)">Random</button></a>
+				</div>
+				<input type="radio" name="Choice" value="all" checked/><title1>All</title1></br></br>
+				<form name="RanFormC" onsubmit="return false">
+					<input type="radio" name="Choice" value="all" checked/><title1>Cuisine</title1></br>
+					<input type="radio" name="Choice" value="Chinese"/>Chinese</br>
+					<input type="radio" name="Choice" value="Dessert"/>Dessert</br>
+					<input type="radio" name="Choice" value="France"/>France</br>
+					<input type="radio" name="Choice" value="Italian"/>Italian</br>			
+					<input type="radio" name="Choice" value="Japanese"/>Japanese</br>
+					<input type="radio" name="Choice" value="Taiwan"/>Taiwan</br>	
+					<input type="radio" name="Choice" value="Western"/>Western</br></br>	
+				<!-- </form>	 -->
+				<!-- <form name="RanFormD" onsubmit="return false"> -->
+					<input type="radio" name="Choice" value="all" checked/><title1>District</title1></br>
+					<input type="radio" name="Choice" value="Hung Hom"/>Hung Hom</br>
+					<input type="radio" name="Choice" value="Whampoa"/>Whampoa</br>
+					<input type="radio" name="Choice" value="Tsim Sha Tsui"/>Tsim Sha Tsui</br></br>
+				<!-- </form>	
+				<form name="RanFormP" onsubmit="return false"> -->
+					<input type="radio" name="Choice" value="all" checked/><title1>Price</title1></br>
+					<input type="radio" name="Choice" value="<$50"/><$50</br>
+					<input type="radio" name="Choice" value="$51-100"/>$51-100</br>
+					<input type="radio" name="Choice" value="$101-200"/>$101-200</br>
+					<input type="radio" name="Choice" value="$201-400"/>$201-400</br></br>
+				</form>
 			</div>
 		</div>
-		<div id = "Rancard" class = "RanRcontent">
+		<div id = "Rancard" class = "RanCcontent">
+		</div>
+	</div>
+	
+	<div id="RanHistory" class="card RanHistory transparentBg border-danger">
+		<div id="RanCHistory" class="RanCHistory">
 		</div>
 	</div>
 	

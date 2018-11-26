@@ -72,25 +72,44 @@ function verticalNav() {
 			$returndata[$i]["P"] = $row["Price"];
 			$returndata[$i]["W"] = $row["Weighting"];
 			$i++;
-		}?>
-		
+		}
+		if($i==0)
+		{
+			$query2="SELECT * FROM restaurant";
+			$result2=$conn->query($query2);
+			if(!$result2) die("No information.");
+			$result2->data_seek(0);
+			$i=0;
+			while($row=$result2->fetch_assoc())
+			{ 
+				$returndata[$i]["ID"]=$i;
+				$returndata[$i]["I"] = $row["Code"];
+				$returndata[$i]["N"] = $row["Name"];
+				$returndata[$i]["C"] = $row["Cuisine"];
+				$returndata[$i]["D"] = $row["District"];
+				$returndata[$i]["P"] = $row["Price"];
+				$returndata[$i]["W"] = $row["Weighting"];
+				$i++;
+			}
+		}
+		?>
 		data = <?php echo(json_encode($returndata));?>;
 		console.log(data);
 		var i = 0;
 		var x = 1;
-		var hehe="";
+		var word="";
 		for(i;i<data.length;i++){
-			hehe+='<div class="card Rcard border-danger transparentBg">';
-			hehe+='<img src="https://i.imgur.com/'+data[i].I+'.png" alt="Image">';
-			hehe+='<div class="card-header text-danger">'+data[i].N+'</div>';
-			hehe+='<div class="card-body text-danger">';
-			hehe+='<div class="card-title">'+data[i].C+'</div><p>';
-			hehe+='<span></span>'+data[i].D+'<br/>';
-			hehe+='<span></span>'+data[i].P+'</p>';
-			hehe+='</div></div>';
+			word+='<div class="card Rcard border-danger transparentBg">';
+			word+='<img src="https://i.imgur.com/'+data[i].I+'.png" alt="Image">';
+			word+='<div class="card-header text-danger">'+data[i].N+'</div>';
+			word+='<div class="card-body text-danger">';
+			word+='<div class="card-title">'+data[i].C+'</div><p>';
+			word+='<span></span>'+data[i].D+'<br/>';
+			word+='<span></span>'+data[i].P+'</p>';
+			word+='</div></div>';
 			x++;
 		}
-			/* $("#content").html(hehe);
+			/* $("#content").html(word);
 			i=0;
 			x=1;
 			for(i;i<data.length;i++){
@@ -100,7 +119,7 @@ function verticalNav() {
 				$("#CP"+x).html(data[i].P);
 				x++;
 			} */
-		document.getElementById("content").innerHTML = hehe
+		document.getElementById("content").innerHTML = word
 	}
 </script>
 </head>
