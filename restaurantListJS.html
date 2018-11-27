@@ -38,26 +38,29 @@ function horizontalBar()
         x.className = "card Rtopbar transparentBg border-danger responsive";
     }
 }
+// Variable to store category which the user selected
+var cat = "all";
 function category(y,p)
 {
 	console.log(y+"eee"+p);
-	if(typeof y ==="undefined"){y = "all";}
-	if(typeof p ==="undefined"){p = "1";}
-	console.log(y+"eee"+p);
+	if(y!=0)
+	{
+		cat = y;
+	}
 	$.post("getRestaurant.php",
-		{eatwhat:y},
+		{eatwhat:cat},
 		function(data)
 		{
-			var i = 0;
+			var i = -12+12*p;
 			var x = 1;
 			data = JSON.parse(data);
 			console.log(data[0]);
 			var word="";
-			for(i;i<12;i++)
+			for(var k = 0;k<12;k++)
 			{
-				if(!data[i])break;
+				if(!data[k+i])break;
 				word+='<div class="card Rcard border-danger transparentBg">';
-				word+='<img src="https://i.imgur.com/'+data[i].I+'.png" alt="Image">';
+				word+='<img src="https://i.imgur.com/'+data[k+i].I+'.png" alt="Image">';
 				word+='<div id="CH'+x+'" class="card-header text-danger"></div>';
 				word+='<div class="card-body text-danger">';
 				word+='<div id="CC'+x+'" class="card-title"></div><p>';
@@ -67,15 +70,15 @@ function category(y,p)
 				x++;
 			}
 			$("#content").html(word);
-			i=0;
-			x=1;
-			for(i;i<12;i++)
+			i = -12+12*p;
+			x = 1;
+			for(var k = 0;k<12;k++)
 			{
-				if(!data[i])break;
-				$("#CH"+x).html(data[i].N);
-				$("#CC"+x).html(data[i].C);
-				$("#CD"+x).html(data[i].D);
-				$("#CP"+x).html(data[i].P);
+				if(!data[k+i])break;
+				$("#CH"+x).html(data[k+i].N);
+				$("#CC"+x).html(data[k+i].C);
+				$("#CD"+x).html(data[k+i].D);
+				$("#CP"+x).html(data[k+i].P);
 				x++;
 			}
 			
@@ -83,24 +86,26 @@ function category(y,p)
 			var pageWord="";
 			var maxPage = Math.ceil(data.length/12);
 			console.log(maxPage);
-			pageWord+='<div class="Rpagination transparentBg">';
-			if(p!=1) 
-			{
-				i = p--;
-				pageWord+='<a href="restaurantListDivPage.php?choice='+y+'&page='+i+'">&laquo;</a>';
-			}
+			pageWord+='<div class="Rpagination transparentBg">'
+			if(p!=1) {p--; pageWord+='<a href="#" onclick=category(0,'+p+')>&laquo;</a>'; p++;}
 			i=1;
 			for(i;i<=maxPage;i++)
 			{
-				pageWord+="<a href='restaurantListDivPage.php?choice="+y+"&page="+i+"'>"+i+"</a>";
+				if(i==p)
+				{
+					pageWord+="<a href='#' onclick=category(0,"+i+") class='active'>"+i+"</a>";
+				}else
+				{
+					pageWord+="<a href='#' onclick=category(0,"+i+")>"+i+"</a>";
+				}
 			}
-			i=1;
-			if(i<maxPage) {pageWord+="<a href='restaurantListDivPage.php?choice="+y+"&page=2'>&raquo;</a>";}
+			i=p;i++;
+			if(p<maxPage) {pageWord+="<a href='#' onclick=category(0,"+i+")>&raquo;</a>";}
 			pageWord+="</div>";
 			// console.log(pageWord);
 			$("#pagination").html(pageWord);
 		}
-	);
+	);	
 }
 $(function spanClick()
 	{
@@ -115,9 +120,9 @@ $(function spanClick()
 </script>
 </head>
 
-<body onload="category()">
+<body onload="category('all',1)">
 	<nav id="header" class="header navbar navbar-expand-lg bg-info">
-		<a href="index.html"><img src="asset/logo_small.png" alt="logo" style="height:100px"></a>
+		<a href="index.html"><img src="https://i.imgur.com/nLtvyR5.png" alt="logo" style="height:100px"></a>
 		<ul class="navbar-nav mr-auto">
 		<a href="index.html"><button class="btn btn-outline-light">Home</button></a> 
 		<a href="restaurantListJS.html"><button class="btn btn-outline-light active">Restaurant</button></a>
@@ -149,7 +154,8 @@ $(function spanClick()
 					<span class="choice" data-choice="France">France</span><br>
 					<span class="choice" data-choice="Italian">Italian</span><br>
 					<span class="choice" data-choice="Japanese">Japanese</span><br>
-					<span class="choice" data-choice="Taiwan">Taiwan</span>
+					<span class="choice" data-choice="Taiwan">Taiwan</span><br>
+					<span class="choice" data-choice="Western">Western</span>
 				</div>
 				<div class="col-sm-3">
 					<title1>District</title1></br>

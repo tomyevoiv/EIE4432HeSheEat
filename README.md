@@ -12,6 +12,15 @@ Features:
 
 Version Update:
 
+Ver. 1j
+1. Modify random function which it now support one parameter per one category.
+2. Creating userCustomWeight.php for future user function.
+3. Update database, mainly picture of restaurants.
+
+Ver. 1i
+1. Combine restaurantListJS and restaurantListDivPage.php.
+2. Create random restaurant history in random.html.
+
 Ver. 1h
 1. Complete basic pagnigation function. (Next version will replace restaurant list and random with php rathar than html.)
 

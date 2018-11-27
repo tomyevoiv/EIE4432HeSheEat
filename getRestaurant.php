@@ -21,6 +21,7 @@
 	{
 		$query1="SELECT * FROM restaurant WHERE 
 		Cuisine='".$_POST['eatwhat']."' or
+		Name='".$_POST['eatwhat']."' or 
 		District='".$_POST['eatwhat']."' or 
 		Price='".$_POST['eatwhat']."'";
 	}
