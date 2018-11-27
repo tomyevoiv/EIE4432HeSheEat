@@ -43,13 +43,13 @@ function verticalNav() {
 		if(!isset($_POST['eatwhat']))
 		{
 			$query1="SELECT * FROM restaurant";
-		}else if($_POST['eatwhat']=="")
+		}/*else if($_POST['eatwhat']=="")
 		{
 			$query1="SELECT * FROM restaurant";
-		}else if (!preg_match('/[a-zA-Z0-9]+/', $_POST['eatwhat']))
+		} else if (!preg_match('/[a-zA-Z0-9]+/', $_POST['eatwhat']))
 		{
 			$query1="SELECT * FROM restaurant";
-		}else
+		} */else
 		{
 			$query1="SELECT * FROM restaurant WHERE 
 			Cuisine LIKE '%".$_POST['eatwhat']."%' or 
@@ -75,22 +75,13 @@ function verticalNav() {
 		}
 		if($i==0)
 		{
-			$query2="SELECT * FROM restaurant";
-			$result2=$conn->query($query2);
-			if(!$result2) die("No information.");
-			$result2->data_seek(0);
-			$i=0;
-			while($row=$result2->fetch_assoc())
-			{ 
-				$returndata[$i]["ID"]=$i;
-				$returndata[$i]["I"] = $row["Code"];
-				$returndata[$i]["N"] = $row["Name"];
-				$returndata[$i]["C"] = $row["Cuisine"];
-				$returndata[$i]["D"] = $row["District"];
-				$returndata[$i]["P"] = $row["Price"];
-				$returndata[$i]["W"] = $row["Weighting"];
-				$i++;
-			}
+			$returndata[$i]["ID"]= $i;
+			$returndata[$i]["I"] = "nLtvyR5";
+			$returndata[$i]["N"] = "404Not found";
+			$returndata[$i]["C"] = "404Not found";
+			$returndata[$i]["D"] = " ";
+			$returndata[$i]["P"] = " ";
+			$returndata[$i]["W"] = "404Not found";
 		}
 		?>
 		data = <?php echo(json_encode($returndata));?>;
@@ -119,7 +110,7 @@ function verticalNav() {
 				$("#CP"+x).html(data[i].P);
 				x++;
 			} */
-		document.getElementById("content").innerHTML = word
+		document.getElementById("content").innerHTML = word;
 	}
 </script>
 </head>
@@ -127,7 +118,7 @@ function verticalNav() {
 <body onload = "result()">
 <div id="sitebody">
 	<nav id="header" class="header navbar navbar-expand-lg bg-info">
-		<a href="index.html"><img src="asset/logo_small.png" alt="logo" style="height:100px"></a>
+		<a href="index.html"><img src="https://i.imgur.com/nLtvyR5.png" alt="logo" style="height:100px"></a>
 		<ul class="navbar-nav mr-auto">
 		<a href="index.html"><button class="btn btn-outline-light">Home</button></a> 
 		<a href="restaurantListJS.html"><button class="btn btn-outline-light">Restaurant</button></a>

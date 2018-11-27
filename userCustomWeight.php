@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>AboutUs - HeSheEat</title>
+<title>User Custom Weighting - HeSheEat</title>
 <link rel="icon" href="https://i.imgur.com/nLtvyR5.png">
 <!-- Main CSS -->
 <link rel="stylesheet" href="main.css"/>
@@ -26,10 +26,39 @@ function verticalNav() {
         x.className = "header navbar navbar-expand-lg bg-info";
     }
 }
+function genTable()
+{
+	var word = "";
+	$.post("getWeighting.php",
+		{eatwhatC:"all",eatwhatD:"all",eatwhatP:"all"},
+		function(data)
+		{
+			console.log("EEE");
+			data = JSON.parse(data);
+			console.log(data[0]);
+			word+="<table><tr>";
+			word+="<th> Restaurant </th><th> Weighting (0-10)</th></tr>";
+			for(var i = 0 ; i < data.length ;i++)
+			{
+				word+="<tr>";
+				word+="<td style='font-weight:bold'>"+data[i].N+"</td>";
+				word+="<td><input type='text' class='centerize' placeholder="+data[i].W+"></td>";
+				word+="</tr>";
+			}
+			word+="</table><br />";
+			console.log(word);
+			$("#UTable").html(word);
+		}
+	);
+}
+function submitWeighting()
+{
+	
+}
 </script>
 </head>
 
-<body>
+<body onload="genTable()">
 <div id="sitebody">
 	<nav id="header" class="header navbar navbar-expand-lg bg-info">
 		<a href="index.html"><img src="https://i.imgur.com/nLtvyR5.png" alt="logo" style="height:100px"></a>
@@ -37,7 +66,7 @@ function verticalNav() {
 		<a href="index.html"><button class="btn btn-outline-light">Home</button></a> 
 		<a href="restaurantListJS.html"><button class="btn btn-outline-light">Restaurant</button></a>
 		<a href="random.html"><button class="btn btn-outline-light">Random</button></a>
-		<a href="aboutUs.html"><button class="btn btn-outline-light active">About Us</button></a>
+		<a href="aboutUs.html"><button class="btn btn-outline-light">About Us</button></a>
 		</ul>
 		<form name="UForm" action="search.php" method="post" class="form-inline">
 			<input class="form-control mr-sm-2" type="search" name="eatwhat" placeholder="Type here" aria-label="Search">
@@ -49,23 +78,30 @@ function verticalNav() {
 	</nav>
 	
 	<div id="content" class="content">
-		<div class="wordbox my-4"><h3>
-		This is a project of EIE4432 Web System and Technology.<br/>
-		This website aims to provide a guide of restaurants around The Hong Kong Polytechnic University,<br/>
-		which are Hung Hom, Whampoa and East Tsim Sha Tsui.<br/>
-		The website also provides a random function which is designed for user cannot decide what to eat.
-		</h3>
-		</div>
-		<div class="wordbox">
-		<h2><i>Group Member:</i></h2><br>
-		<h3>
-			Hui Ka Hung 16035168D<br>
-			Kwan Wai Kin 13070896D<br>
-			Li King Wai 16035175D<br>
-			Ng Chi Chun 17023807D<br>
-			Tsang Chi Kin 16044506D<br>
-		</h3>
-		</div>
+		<form name="UCForm" action="#" method="post">
+			<div id="userCWinterface" class="card transparentBg border-danger" style="padding: 1rem;margin-bottom: 1rem">
+				<div class="row">
+					<div class="col-sm-5">
+						<h2>Hi user XXXXXXX! I am using HeSheEat!</h2><br />
+						<div id="UTable">
+						</div>
+						<input class="btn btn-outline-danger" type="submit" value="Enter">
+					</div>
+					<div class="col-sm-7">
+						<div><h4>
+						Instruction:<br><br><br>
+						There is a random function in this website.<br><br>
+						By default, weighting of all restaurants are 5.<br><br>
+						Higher the weighting, the restaurant will be more often called by the random function.<br><br>
+						On opposite, lower the weighting the restaurant will be less called.<br><br>
+						If the weighting is 0, that restaurant will never be called.<br><br>
+						You can modify the weighting as you like.<br><br>
+						After enter is pressed, your preference will be saved and you can use it when you use the random function next time.
+						</h4></div>
+					</div>
+				</div>
+			</div>
+		</form>
 	</div>
 	
 	<div id="footer" class="footer">

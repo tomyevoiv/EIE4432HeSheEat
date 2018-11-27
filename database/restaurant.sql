@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: 127.0.0.1
--- 生成日期: 2018-11-20 11:57:05
+-- 生成日期: 2018-11-27 09:42:04
 -- 服务器版本: 5.6.14
 -- PHP 版本: 5.5.6
 
@@ -41,38 +41,38 @@ CREATE TABLE IF NOT EXISTS `restaurant` (
 --
 
 INSERT INTO `restaurant` (`Code`, `Name`, `Cuisine`, `District`, `Price`, `Weighting`) VALUES
-(NULL, 'California Pizza Kitchen', 'Western', 'Whampoa', '$51-100', 5),
-('V44nGxA', 'Delifrance', 'France', 'Tsim Sha Tsui', '$51-100', 5),
-(NULL, 'Dondonya', 'Japanese', 'Whampoa', '$51-100', 5),
+('CD3HiHN', 'California Pizza Kitchen WP', 'Western', 'Whampoa', '$51-100', 5),
+('V44nGxA', 'Delifrance ETST', 'France', 'Tsim Sha Tsui', '$51-100', 5),
+('QRTaVHK', 'Dondonya WP', 'Japanese', 'Whampoa', '$51-100', 5),
 ('vAYTNlN', 'Fat Girl Chicken', 'Chinese', 'Hung Hom', '$51-100', 5),
-('v81I1ST', 'Genki Sushi', 'Japanese', 'Tsim Sha Tsui', '$101-200', 5),
-(NULL, 'Genki Sushi WP', 'Japanese', 'Whampoa', '$101-200', 5),
-(NULL, 'Gyu-Kaku', 'Japanese', 'Whampoa', '$201-400', 5),
-('wI1zwP8', 'Iron Cow', 'Taiwan', 'Tsim Sha Tsui', '$51-100', 5),
-(NULL, 'Jolibee', 'Western', 'Whampoa', '<$50', 5),
-(NULL, 'Makoto Ramen', 'Japanese', 'Whampoa', '$51-100', 5),
-(NULL, 'Mcdonald ETST', 'Western', 'Tsim Sha Tsui', '<$50', 5),
-(NULL, 'McDonald HH', 'Western', 'Hung Hom', '<$50', 5),
-(NULL, 'McDonald WP', 'Western', 'Whampoa', '<50', 5),
+('v81I1ST', 'Genki Sushi ETST', 'Japanese', 'Tsim Sha Tsui', '$101-200', 5),
+('aCoipml', 'Genki Sushi WP', 'Japanese', 'Whampoa', '$101-200', 5),
+('IYKwJ10', 'Gyu-Kaku WP', 'Japanese', 'Whampoa', '$201-400', 5),
+('wI1zwP8', 'Iron Cow ETST', 'Taiwan', 'Tsim Sha Tsui', '$51-100', 5),
+('IVAejaz', 'Jolibee WP', 'Western', 'Whampoa', '<$50', 5),
+('IzAsatf', 'Makoto Ramen WP', 'Japanese', 'Whampoa', '$51-100', 5),
+('10fXJ2o', 'Mcdonald ETST', 'Western', 'Tsim Sha Tsui', '<$50', 5),
+('qQ4HjQp', 'McDonald HH', 'Western', 'Hung Hom', '<$50', 5),
+('sxIWxaK', 'McDonald WP', 'Western', 'Whampoa', '<50', 5),
 ('QqJ21We', 'Mikawaya', 'Japanese', 'Hung Hom', '$51-100', 5),
-(NULL, 'Mou Mou Club', 'Japanese', 'Whampoa', '$101-200', 5),
-(NULL, 'Nakayo Shokudou', 'Japanese', 'Whampoa', '$51-100', 5),
-(NULL, 'Noodle House Ippei-An', 'Japanese', 'Tsim Sha Tsui', '$51-100', 5),
-(NULL, 'Outback Steakhouse', 'Western', 'Whampoa', '$201-400', 5),
+('ccCzHf8', 'Mou Mou Club WP', 'Japanese', 'Whampoa', '$101-200', 5),
+('vKK6RBw', 'Nakayo Shokudou WP', 'Japanese', 'Whampoa', '$51-100', 5),
+('I6Wjj2f', 'Noodle House Ippei-An ETST', 'Japanese', 'Tsim Sha Tsui', '$51-100', 5),
+('C1lAjEC', 'Outback Steakhouse WP', 'Western', 'Whampoa', '$201-400', 5),
 ('OqPC5Gd', 'Owariya', 'Japanese', 'Hung Hom', '$51-100', 5),
-('I1Yn1S2', 'Pastaholic', 'Italian', 'Hung Hom', '$51-100', 5),
-(NULL, 'Pepper Lunch', 'Japanese', 'Whampoa', '$51-100', 5),
-(NULL, 'Pizza Hut', 'Italian', 'Whampoa', '$51-100', 5),
+('I1Yn1S2', 'Pastaholic HH', 'Italian', 'Hung Hom', '$51-100', 5),
+('ljwkPjL', 'Pepper Lunch WP', 'Japanese', 'Whampoa', '$51-100', 5),
+('6kFVrX4', 'Pizza Hut WP', 'Italian', 'Whampoa', '$51-100', 5),
 ('WtPZmGE', 'Saizeiya WP', 'Italian', 'Whampoa', '<$50', 5),
-(NULL, 'Soup plus', 'Chinese', 'Hung Hom', '$51-100', 5),
+('RThSVgo', 'Soup plus WP', 'Chinese', 'Hung Hom', '$51-100', 5),
 ('qHsKktR', 'Sushi Daidai', 'Japanese', 'Hung Hom', '$51-100', 5),
-(NULL, 'Tam Chai SamGor Mixian ETST', 'Chinese', 'Tsim Sha Tsui', '$51-100', 5),
-(NULL, 'Tam Chai SamGor Mixian WP', 'Chinese', 'Whampoa', '$51-100', 5),
+('CbIa9pA', 'Tam Chai SamGor Mixian ETST', 'Chinese', 'Tsim Sha Tsui', '$51-100', 5),
+('HW82iqb', 'Tam Chai SamGor Mixian WP', 'Chinese', 'Whampoa', '$51-100', 5),
 ('cuaY3S8', 'Tam Chai TST', 'Chinese', 'Tsim Sha Tsui', '$51-100', 5),
-(NULL, 'TeaWood', 'Taiwan', 'Whampoa', '$51-100', 5),
+('1gITuXC', 'TeaWoodWP', 'Taiwan', 'Whampoa', '$51-100', 5),
 ('ls5g8Tu', 'Tenno Ramen', 'Japanese', 'Hung Hom', '$51-100', 5),
 ('81NXzay', 'The Sesame', 'Dessert', 'Hung Hom', '<$50', 5),
-(NULL, 'Yumai', 'Chinese', 'Whampoa', '$51-100', 5);
+('Wv2G8V1', 'Yumai HH', 'Chinese', 'Whampoa', '$51-100', 5);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

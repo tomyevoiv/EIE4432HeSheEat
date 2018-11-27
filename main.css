@@ -148,15 +148,15 @@ body
 .RanHistory
 {
 	padding: 1rem;
-	height:220px;
+	height:345px;
 	margin: 0 1rem 1rem 1rem; 
 }
 
 .RanCHistory
 {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, 84px);
-    grid-template-rows: repeat(auto-fit, 90px);
+	grid-template-columns: repeat(auto-fit, 126px);
+    grid-template-rows: repeat(auto-fit, 135px);
 	grid-gap: 5px;
 	overflow: hidden;
 }
@@ -165,7 +165,6 @@ body
 {
 	color: #dc3545;
 	padding: 1rem;
-	height: 100vh - 266px;
 }
 
 .footer
@@ -228,14 +227,10 @@ body
 .Hiscard
 {
 	width: auto;
-	height: 90px;
-	font-size: 0.6rem !important;
+	height: 135px;
+	font-size: 0.8rem !important;
 	font-weight: 700 !important;
 	padding: 0 !important;
-}
-
-.Hiscard .card-header
-{
 }
 
 .Hiscard img
@@ -287,6 +282,11 @@ body
 .barBlock
 {
 	margin: 0 0 0 1rem;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
 }
 
 .centerize

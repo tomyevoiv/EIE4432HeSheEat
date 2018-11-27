@@ -7,22 +7,45 @@
 	}
 	
 	$returndata=[];
-	if(!isset($_POST['eatwhat']))
+	if(!isset($_POST['eatwhatC']))
 	{
 		$query1="SELECT * FROM restaurant ";
-	}elseif($_POST['eatwhat']=="all")
+	}elseif($_POST['eatwhatC']=="all" && $_POST['eatwhatD']=="all" && $_POST['eatwhatP']=="all")
 	{
-		$query1="SELECT * FROM restaurant";
-	}elseif($_POST['eatwhat']=="undefined")
+		$query1="SELECT * FROM restaurant ";
+	}elseif($_POST['eatwhatC']=="all" && $_POST['eatwhatD']=="all")
 	{
-		$query1="SELECT * FROM restaurant";
+		$query1="SELECT * FROM restaurant WHERE Price='".$_POST['eatwhatP']."'";
+	}elseif($_POST['eatwhatC']=="all" && $_POST['eatwhatP']=="all")
+	{
+		$query1="SELECT * FROM restaurant WHERE District='".$_POST['eatwhatD']."'";
+	}elseif($_POST['eatwhatD']=="all" && $_POST['eatwhatP']=="all")
+	{
+		$query1="SELECT * FROM restaurant WHERE Cuisine='".$_POST['eatwhatC']."'";
+	}elseif($_POST['eatwhatC']=="all")
+	{
+		$query1="SELECT * FROM restaurant WHERE
+		District='".$_POST['eatwhatD']."' and 
+		Price='".$_POST['eatwhatP']."'";
+	}elseif($_POST['eatwhatD']=="all")
+	{
+		$query1="SELECT * FROM restaurant WHERE
+		Cuisine='".$_POST['eatwhatC']."' and 
+		Price='".$_POST['eatwhatP']."'";
+	}elseif($_POST['eatwhatP']=="all")
+	{
+		$query1="SELECT * FROM restaurant WHERE
+		Cuisine='".$_POST['eatwhatC']."' and 
+		District='".$_POST['eatwhatD']."'";
 	}else
 	{
 		$query1="SELECT * FROM restaurant WHERE 
-		Cuisine='".$_POST['eatwhat']."' or
-		District='".$_POST['eatwhat']."' or 
-		Price='".$_POST['eatwhat']."'";
+		Cuisine='".$_POST['eatwhatC']."' and
+		District='".$_POST['eatwhatD']."' and 
+		Price='".$_POST['eatwhatP']."'";
 	}
+	
+	
 	$result1=$conn->query($query1);
 	if(!$result1) die("No information.");
     $result1->data_seek(0);
