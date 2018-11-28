@@ -1,8 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<title>Search Result - HeSheEat</title>
+<title><?php echo $_COOKIE["userName"] ?> - HeSheEat</title>
 <link rel="icon" href="https://i.imgur.com/nLtvyR5.png">
+<?php
+if(!isset($_COOKIE["userName"]))
+{
+	echo "<script type='text/javascript'>
+	alert('Please log in your account');
+	</script>";
+	echo "<script type='text/javascript'>setTimeout('', 10000);</script>";
+	echo "<script type='text/javascript'>window.location.replace(\"LogIn.php\");</script>";
+}
+?>
 <!-- Main CSS -->
 <link rel="stylesheet" href="main.css"/>
 <!-- jQuery -->
@@ -26,96 +36,28 @@ function verticalNav() {
         x.className = "header navbar navbar-expand-lg bg-info";
     }
 }
-</script>
-<script type = "text/javascript">
-	function result()
-	{
-		<!-- Connect to the database -->
-		<?php
-		$conn=mysqli_connect("us-cdbr-iron-east-01.cleardb.net","b7edc7dcef5916","bae20f4b","heroku_b82a63fd777a03c");
-		if($conn->connect_error)
+function genUserInfo()
+{
+	$.post("getUserInfo.php",
+	{who:"<?php echo $_COOKIE["userName"] ?>"},
+		function(data)
 		{
-			echo "Unable to connect to database.";
-			exit;
+			data = JSON.parse(data);
+			console.log(data);
+			var word = "";
+			word+="<h5>Hi, "+data.F+" "+data.L+".</h5><br>";
+			word+="<h5>User ID: "+data.ID+"</h5><br>";
+			word+="<h5>Birthday: "+data.B+"</h5><br>";
+			word+="<h5>Phone No.: "+data.P+"</h5><br>";
+			word+="<h5>Email: "+data.E+"</h5><br>";		
+			$("#info").html(word);
 		}
-		
-		$returndata=[];
-		if(!isset($_POST['eatwhat']))
-		{
-			$query1="SELECT * FROM restaurant";
-		}/*else if($_POST['eatwhat']=="")
-		{
-			$query1="SELECT * FROM restaurant";
-		} else if (!preg_match('/[a-zA-Z0-9]+/', $_POST['eatwhat']))
-		{
-			$query1="SELECT * FROM restaurant";
-		} */else
-		{
-			$query1="SELECT * FROM restaurant WHERE 
-			Cuisine LIKE '%".$_POST['eatwhat']."%' or 
-			Name LIKE '%".$_POST['eatwhat']."%' or 
-			District LIKE '%".$_POST['eatwhat']."%' or 
-			Price LIKE '%".$_POST['eatwhat']."%'";
-		}
-		$result1=$conn->query($query1);
-		if(!$result1) die("No information.");
-		$result1->data_seek(0);
-	
-		$i=0;
-		while($row=$result1->fetch_assoc())
-		{ 
-			$returndata[$i]["ID"]=$i;
-			$returndata[$i]["I"] = $row["Code"];
-			$returndata[$i]["N"] = $row["Name"];
-			$returndata[$i]["C"] = $row["Cuisine"];
-			$returndata[$i]["D"] = $row["District"];
-			$returndata[$i]["P"] = $row["Price"];
-			$returndata[$i]["W"] = $row["Weighting"];
-			$i++;
-		}
-		if($i==0)
-		{
-			$returndata[$i]["ID"]= $i;
-			$returndata[$i]["I"] = "nLtvyR5";
-			$returndata[$i]["N"] = "404Not found";
-			$returndata[$i]["C"] = "404Not found";
-			$returndata[$i]["D"] = " ";
-			$returndata[$i]["P"] = " ";
-			$returndata[$i]["W"] = "404Not found";
-		}
-		?>
-		data = <?php echo(json_encode($returndata));?>;
-		console.log(data);
-		var i = 0;
-		var x = 1;
-		var word="";
-		for(i;i<data.length;i++){
-			word+='<div class="card Rcard border-danger transparentBg">';
-			word+='<img src="https://i.imgur.com/'+data[i].I+'.png" alt="Image">';
-			word+='<div class="card-header text-danger">'+data[i].N+'</div>';
-			word+='<div class="card-body text-danger">';
-			word+='<div class="card-title">'+data[i].C+'</div><p>';
-			word+='<span></span>'+data[i].D+'<br/>';
-			word+='<span></span>'+data[i].P+'</p>';
-			word+='</div></div>';
-			x++;
-		}
-			/* $("#content").html(word);
-			i=0;
-			x=1;
-			for(i;i<data.length;i++){
-				$("#CH"+x).html(data[i].N);
-				$("#CC"+x).html(data[i].C);
-				$("#CD"+x).html(data[i].D);
-				$("#CP"+x).html(data[i].P);
-				x++;
-			} */
-		document.getElementById("content").innerHTML = word;
-	}
+	);
+}
 </script>
 </head>
 
-<body onload = "result()">
+<body onload="genUserInfo()">
 <div id="sitebody">
 	<nav id="header" class="header navbar navbar-expand-lg bg-info">
 		<a href="index.php"><img src="https://i.imgur.com/nLtvyR5.png" alt="logo" style="height:100px"></a>
@@ -133,22 +75,29 @@ function verticalNav() {
 			<?php
 				if(isset($_COOKIE["userName"]))
 				{
-					echo '<a id="userB" href="userInfo.php" class="btn btn-outline-light my-2 Brighterize">';
+					echo '<a id="userB" href="userInfo.php" class="btn btn-outline-light my-2 active Brighterize">';
 					echo "Welcome ".$_COOKIE["userName"]."</a><br>";
 				}else
 				{
 					echo '<a id="userB" href="Login.php" class="btn btn-outline-light my-2 Brighterize">';
 					echo "Login</a><br>";
 				}
-			?>
+			?>			
 		</div>
 		<a href="javascript:void(0);" class="icon mx-2" onclick="verticalNav()">
 			<i class="fa fa-bars" style="font-size: 30px; color: #343a40;"></i>
 		</a>
 	</nav>
 	
-	<div id="content" class="Rcontent">
-		
+	<div id="content" class="content">
+		<div class="card transparentBg border-danger" style="margin-bottom:1rem">
+			<div id="info" style="padding:1rem">
+			</div>
+			<div style="padding: 1rem">
+				<a href="userCustomWeight.php" class="btn btn-outline-danger">Custom Restaurant Weighting</a>
+				<a href="logOut.php" class="btn btn-outline-danger">Log out</a>
+			</div>
+		</div>
 	</div>
 	
 	<div id="footer" class="footer">

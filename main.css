@@ -6,7 +6,8 @@ html
 body 
 {
 	height: 100%;
-	background: url('https://i.imgur.com/TKpDkrc.jpg'); 
+	/* background: url('https://i.imgur.com/TKpDkrc.jpg');  */
+	background: url('https://i.imgur.com/5knIOKN.png'); 
 	background-size: cover;
     background-repeat:no-repeat;
 	background-attachment:fixed;
@@ -73,7 +74,22 @@ body
 		text-align: left;
 	}
 }
-
+.Rslide
+{
+	display: grid;
+	grid-template-columns: repeat(auto-fit, 250px);
+	grid-gap: 15px;
+	padding: 1rem;
+	overflow: hidden;
+}
+.Hslide
+{
+	display: grid;
+	grid-template-columns: repeat(auto-fit, 400px);
+	grid-gap: 15px;
+	padding: 1rem;
+	overflow: hidden;
+}
 /* .sidebar
 {
 	margin: 1rem;
@@ -82,12 +98,31 @@ body
 
 .content
 {
-	padding-top: 1rem;
-	padding-left: 1rem;
-	padding-right: 1rem;
+	padding: 1rem;
 	min-height: calc(100vh - 259px);
 }
 
+.Scontent
+{
+	width: auto;
+	height: 300px;	
+}
+
+.Scard
+{
+	width: auto;
+	height: 280px;
+	font-size: 1rem;
+}
+.Scard img
+{
+	width: 100%;
+}
+.Scenterize
+{
+	display: block;
+    margin: auto auto;
+}
 .Rcontent
 {
 	display: grid;
@@ -128,7 +163,7 @@ body
 .Rancontent
 {
 	display: grid;
-	grid-template-columns: 240px auto;
+	grid-template-columns: 240px 300px auto;
 	grid-gap: 15px;
 	padding-left: 1rem;
 	padding-top: 1rem;
@@ -148,8 +183,9 @@ body
 .RanHistory
 {
 	padding: 1rem;
-	height:345px;
-	margin: 0 1rem 1rem 1rem; 
+	height: auto;
+	margin-right: 1rem;
+	max-height: 625px;
 }
 
 .RanCHistory
@@ -299,6 +335,12 @@ table, th, td {
     display: block;
     margin: auto auto;
     text-align: center;
+}
+
+.Brighterize
+{
+	float: right;
+	width: fixed;
 }
 
 .transparentBg

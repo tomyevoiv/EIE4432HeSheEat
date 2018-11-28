@@ -1,8 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>User Custom Weighting - HeSheEat</title>
+<title><?php echo $_COOKIE["userName"] ?> Custom Weighting - HeSheEat</title>
 <link rel="icon" href="https://i.imgur.com/nLtvyR5.png">
+<?php
+if(!isset($_COOKIE["userName"]))
+{
+	echo "<script type='text/javascript'>
+	alert('Please log in your account');
+	</script>";
+	echo "<script type='text/javascript'>setTimeout('', 10000);</script>";
+	echo "<script type='text/javascript'>window.location.replace(\"LogIn.php\");</script>";
+}
+?>
 <!-- Main CSS -->
 <link rel="stylesheet" href="main.css"/>
 <!-- jQuery -->
@@ -41,19 +51,41 @@ function genTable()
 			for(var i = 0 ; i < data.length ;i++)
 			{
 				word+="<tr>";
-				word+="<td style='font-weight:bold'>"+data[i].N+"</td>";
-				word+="<td><input type='text' class='centerize' placeholder="+data[i].W+"></td>";
+				word+="<td id='td"+i+"'style='font-weight:bold'>"+data[i].N+"</td>";
+				word+="<td><input id='tv"+i+"' type='text' class='centerize' value="+data[i].W+"></td>";
 				word+="</tr>";
 			}
 			word+="</table><br />";
-			console.log(word);
+			//console.log(word);
 			$("#UTable").html(word);
 		}
 	);
 }
 function submitWeighting()
 {
-	
+	var subDataN = [];
+	var subDataW = [];
+	$.post("getRestaurant.php",
+		{eatwhat: "all"},
+		function(data)
+		{
+			data = JSON.parse(data);
+			for(var i = 0; i<data.length ; i++)
+			{
+				subDataN[i] = document.getElementById("td"+i).innerHTML;
+				subDataW[i] = document.getElementById("tv"+i).value;
+			}
+		console.log(subDataW);
+		$.post("changeUserWeight.php",
+			{Cname: subDataN, Cweight: subDataW},
+			function()
+			{
+				alert('User random preference is saved');
+			}
+			
+			);		
+		}
+	);
 }
 </script>
 </head>
@@ -61,31 +93,43 @@ function submitWeighting()
 <body onload="genTable()">
 <div id="sitebody">
 	<nav id="header" class="header navbar navbar-expand-lg bg-info">
-		<a href="index.html"><img src="https://i.imgur.com/nLtvyR5.png" alt="logo" style="height:100px"></a>
+		<a href="index.php"><img src="https://i.imgur.com/nLtvyR5.png" alt="logo" style="height:100px"></a>
 		<ul class="navbar-nav mr-auto">
-		<a href="index.html"><button class="btn btn-outline-light">Home</button></a> 
-		<a href="restaurantListJS.html"><button class="btn btn-outline-light">Restaurant</button></a>
-		<a href="random.html"><button class="btn btn-outline-light">Random</button></a>
-		<a href="aboutUs.html"><button class="btn btn-outline-light">About Us</button></a>
+		<a href="index.php"><button class="btn btn-outline-light">Home</button></a> 
+		<a href="restaurantListJS.php"><button class="btn btn-outline-light">Restaurant</button></a>
+		<a href="random.php"><button class="btn btn-outline-light">Random</button></a>
+		<a href="aboutUs.php"><button class="btn btn-outline-light">About Us</button></a>
 		</ul>
-		<form name="UForm" action="search.php" method="post" class="form-inline">
+		<div>
+			<form name="UForm" action="search.php" method="post" class="form-inline">
 			<input class="form-control mr-sm-2" type="search" name="eatwhat" placeholder="Type here" aria-label="Search">
 			<input class="btn btn-dark my-2 my-sm-0" type="submit" value="Search">
-		</form>
+			</form>
+			<?php
+				if(isset($_COOKIE["userName"]))
+				{
+					echo '<a id="userB" href="userInfo.php" class="btn btn-outline-light my-2 active Brighterize">';
+					echo "Welcome ".$_COOKIE["userName"]."</a><br>";
+				}else
+				{
+					echo '<a id="userB" href="Login.php" class="btn btn-outline-light my-2 Brighterize">';
+					echo "Login</a><br>";
+				}
+			?>	
+		</div>
 		<a href="javascript:void(0);" class="icon mx-2" onclick="verticalNav()">
 			<i class="fa fa-bars" style="font-size: 30px; color: #343a40;"></i>
 		</a>
 	</nav>
 	
 	<div id="content" class="content">
-		<form name="UCForm" action="#" method="post">
-			<div id="userCWinterface" class="card transparentBg border-danger" style="padding: 1rem;margin-bottom: 1rem">
+			<div id="userCWinterface" class="card transparentBg border-danger" style="padding: 1rem; margin-bottom: 1rem">
 				<div class="row">
 					<div class="col-sm-5">
-						<h2>Hi user XXXXXXX! I am using HeSheEat!</h2><br />
+						<h2>Hi <?php echo $_COOKIE["userName"] ?>! You are using HeSheEat!</h2><br />
 						<div id="UTable">
 						</div>
-						<input class="btn btn-outline-danger" type="submit" value="Enter">
+						<input class="btn btn-outline-danger" type="submit" value="Enter" onclick="submitWeighting()">
 					</div>
 					<div class="col-sm-7">
 						<div><h4>
@@ -101,7 +145,6 @@ function submitWeighting()
 					</div>
 				</div>
 			</div>
-		</form>
 	</div>
 	
 	<div id="footer" class="footer">
