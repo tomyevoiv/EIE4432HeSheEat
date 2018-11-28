@@ -27,8 +27,8 @@ while($row=$result->fetch_assoc())
 if($bool!=0)
 {
 	$cookie_userName = $_GET["userName"];
-    $userName_set = setcookie('userName', $cookie_userName, time()+60000, '/');
-    echo "Welcome ".$UserName."!<br />Cookie is set";
+    $userName_set = setcookie('userName', $cookie_userName, time()+(86400 * 30), '/');
+    echo "Welcome";
 }else
 {
 	echo 'Wrong Username or Password';

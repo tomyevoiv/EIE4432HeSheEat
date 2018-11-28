@@ -118,19 +118,29 @@ function verticalNav() {
 <body onload = "result()">
 <div id="sitebody">
 	<nav id="header" class="header navbar navbar-expand-lg bg-info">
-		<a href="index.html"><img src="https://i.imgur.com/nLtvyR5.png" alt="logo" style="height:100px"></a>
+		<a href="index.php"><img src="https://i.imgur.com/nLtvyR5.png" alt="logo" style="height:100px"></a>
 		<ul class="navbar-nav mr-auto">
-		<a href="index.html"><button class="btn btn-outline-light">Home</button></a> 
-		<a href="restaurantListJS.html"><button class="btn btn-outline-light">Restaurant</button></a>
-		<a href="random.html"><button class="btn btn-outline-light">Random</button></a>
-		<a href="aboutUs.html"><button class="btn btn-outline-light">About Us</button></a>
+		<a href="index.php"><button class="btn btn-outline-light">Home</button></a> 
+		<a href="restaurantListJS.php"><button class="btn btn-outline-light">Restaurant</button></a>
+		<a href="random.php"><button class="btn btn-outline-light">Random</button></a>
+		<a href="aboutUs.php"><button class="btn btn-outline-light">About Us</button></a>
 		</ul>
 		<div>
 			<form name="UForm" action="search.php" method="post" class="form-inline">
 			<input class="form-control mr-sm-2" type="search" name="eatwhat" placeholder="Type here" aria-label="Search">
 			<input class="btn btn-dark my-2 my-sm-0" type="submit" value="Search">
 			</form>
-			<a href="Login.php" class="btn btn-outline-light my-2 Brighterize">Login in</a><br>
+			<?php
+				if(isset($_COOKIE["userName"]))
+				{
+					echo '<a id="userB" href="userInfo.php" class="btn btn-outline-light my-2 Brighterize">';
+					echo "Welcome ".$_COOKIE["userName"]."</a><br>";
+				}else
+				{
+					echo '<a id="userB" href="Login.php" class="btn btn-outline-light my-2 Brighterize">';
+					echo "Login</a><br>";
+				}
+			?>
 		</div>
 		<a href="javascript:void(0);" class="icon mx-2" onclick="verticalNav()">
 			<i class="fa fa-bars" style="font-size: 30px; color: #343a40;"></i>

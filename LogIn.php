@@ -1,6 +1,16 @@
 <html>    
 <title> Log In - HeSheEat</title>
 <link rel="icon" href="https://i.imgur.com/nLtvyR5.png">
+<?php
+if(isset($_COOKIE["userName"]))
+{
+	echo "<script type='text/javascript'>
+	alert('You have logged in');
+	</script>";
+	echo "<script type='text/javascript'>setTimeout('', 10000);</script>";
+	echo "<script type='text/javascript'>window.location.replace(\"UserInfo.php\");</script>";
+}
+?>
 <style>
     span{color: red;}
 </style>
@@ -67,9 +77,9 @@ function AJAXCheckUser() {
 
             if (xmlHttp.readyState == 4) {
                 var temp = xmlHttp.responseText;
-                if (temp=="cookie set"){
+                if (temp=="Welcome"){
                     //redirect to home page if correct
-                    window.location.replace("index.html");
+                    window.location.replace("userInfo.php");
                 }else {
                     document.getElementById("disInfo").innerHTML = temp+"<br>";
                 }
@@ -83,19 +93,29 @@ function AJAXCheckUser() {
 <body>
 <div id="sitebody">
 	<nav id="header" class="header navbar navbar-expand-lg bg-info">
-		<a href="index.html"><img src="https://i.imgur.com/nLtvyR5.png" alt="logo" style="height:100px"></a>
+		<a href="index.php"><img src="https://i.imgur.com/nLtvyR5.png" alt="logo" style="height:100px"></a>
 		<ul class="navbar-nav mr-auto">
-		<a href="index.html"><button class="btn btn-outline-light active">Home</button></a> 
-		<a href="restaurantListJS.html"><button class="btn btn-outline-light">Restaurant</button></a>
-		<a href="random.html"><button class="btn btn-outline-light">Random</button></a>
-		<a href="aboutUs.html"><button class="btn btn-outline-light">About Us</button></a>
+		<a href="index.php"><button class="btn btn-outline-light">Home</button></a> 
+		<a href="restaurantListJS.php"><button class="btn btn-outline-light">Restaurant</button></a>
+		<a href="random.php"><button class="btn btn-outline-light">Random</button></a>
+		<a href="aboutUs.php"><button class="btn btn-outline-light">About Us</button></a>
 		</ul>
 		<div>
 			<form name="UForm" action="search.php" method="post" class="form-inline">
 			<input class="form-control mr-sm-2" type="search" name="eatwhat" placeholder="Type here" aria-label="Search">
-			<input class="btn btn-dark my-2 my-sm-0" type="submit" value="Search">
+			<input class="btn btn-dark my-sm-0" type="submit" value="Search">
 			</form>
-			<a href="Login.php" class="btn btn-outline-light active Brighterize">Login in</a><br>
+			<?php
+				if(isset($_COOKIE["userName"]))
+				{
+					echo '<a id="userB" href="userInfo.php" class="btn btn-outline-light my-2 Brighterize">';
+					echo "Welcome ".$_COOKIE["userName"]."</a><br>";
+				}else
+				{
+					echo '<a id="userB" href="Login.php" class="btn btn-outline-light Brighterize active" style="margin-top:-0.5rem">';
+					echo "Login</a><br>";
+				}
+			?>
 		</div>
 		<a href="javascript:void(0);" class="icon mx-2" onclick="verticalNav()">
 			<i class="fa fa-bars" style="font-size: 30px; color: #343a40;"></i>
@@ -110,7 +130,7 @@ function AJAXCheckUser() {
 				<div class="col-md-6 mb-3">
 					<label for="userName">Username</label>
 					<div class="input-group">
-						<input type="text" class="form-control" name="userName" id="userName" value="admin"
+						<input type="text" class="form-control" name="userName" id="userName"
 							placeholder="Username*"
 							aria-describedby="inputGroupPrepend" required>
 						<span id="checkUserName"></span>
@@ -130,10 +150,10 @@ function AJAXCheckUser() {
 					</div>
 				</div>
 			</div>
-			<button type="button" class="btn btn-primary" onclick="AJAXCheckUser()">Submit</button>
+			<button type="button" class="btn btn-danger" onclick="AJAXCheckUser()">Submit</button>
 		</form>
 		<span id="disInfo" name="disInfo"></span>
-		<a href="createAC.php">Create Account</a><br>
+		<a href="createAC.php" style="color:#dc3545">Create Account</a><br>
 		</div>
 	</div>
 	

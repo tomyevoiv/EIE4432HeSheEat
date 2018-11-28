@@ -1,18 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title><?php echo $_COOKIE["userName"] ?> - HeSheEat</title>
+<title>AboutUs - HeSheEat</title>
 <link rel="icon" href="https://i.imgur.com/nLtvyR5.png">
-<?php
-if(!isset($_COOKIE["userName"]))
-{
-	echo "<script type='text/javascript'>
-	alert('Please log in your account');
-	</script>";
-	echo "<script type='text/javascript'>setTimeout('', 10000);</script>";
-	echo "<script type='text/javascript'>window.location.replace(\"LogIn.php\");</script>";
-}
-?>
 <!-- Main CSS -->
 <link rel="stylesheet" href="main.css"/>
 <!-- jQuery -->
@@ -36,53 +26,25 @@ function verticalNav() {
         x.className = "header navbar navbar-expand-lg bg-info";
     }
 }
-function genUserInfo()
-{
-	$.post("getUserInfo.php",
-	{who:"<?php echo $_COOKIE["userName"] ?>"},
-		function(data)
-		{
-			data = JSON.parse(data);
-			console.log(data);
-			var word = "";
-			word+="<h5>Hi, "+data.F+" "+data.L+".</h5><br>";
-			word+="<h5>User ID: "+data.ID+"</h5><br>";
-			word+="<h5>Birthday: "+data.B+"</h5><br>";
-			word+="<h5>Phone No.: "+data.P+"</h5><br>";
-			word+="<h5>Email: "+data.E+"</h5><br>";		
-			$("#info").html(word);
-		}
-	);
-}
 </script>
 </head>
 
-<body onload="genUserInfo()">
+<body>
 <div id="sitebody">
 	<nav id="header" class="header navbar navbar-expand-lg bg-info">
-		<a href="index.php"><img src="https://i.imgur.com/nLtvyR5.png" alt="logo" style="height:100px"></a>
+		<a href="index.html"><img src="https://i.imgur.com/nLtvyR5.png" alt="logo" style="height:100px"></a>
 		<ul class="navbar-nav mr-auto">
-		<a href="index.php"><button class="btn btn-outline-light">Home</button></a> 
-		<a href="restaurantListJS.php"><button class="btn btn-outline-light">Restaurant</button></a>
-		<a href="random.php"><button class="btn btn-outline-light">Random</button></a>
-		<a href="aboutUs.php"><button class="btn btn-outline-light">About Us</button></a>
+		<a href="index.html"><button class="btn btn-outline-light">Home</button></a> 
+		<a href="restaurantListJS.html"><button class="btn btn-outline-light">Restaurant</button></a>
+		<a href="random.html"><button class="btn btn-outline-light">Random</button></a>
+		<a href="aboutUs.html"><button class="btn btn-outline-light active">About Us</button></a>
 		</ul>
 		<div>
 			<form name="UForm" action="search.php" method="post" class="form-inline">
 			<input class="form-control mr-sm-2" type="search" name="eatwhat" placeholder="Type here" aria-label="Search">
 			<input class="btn btn-dark my-2 my-sm-0" type="submit" value="Search">
 			</form>
-			<?php
-				if(isset($_COOKIE["userName"]))
-				{
-					echo '<a id="userB" href="userInfo.php" class="btn btn-outline-light my-2 active Brighterize">';
-					echo "Welcome ".$_COOKIE["userName"]."</a><br>";
-				}else
-				{
-					echo '<a id="userB" href="Login.php" class="btn btn-outline-light my-2 Brighterize">';
-					echo "Login</a><br>";
-				}
-			?>			
+			<a href="Login.php" class="btn btn-outline-light my-2 Brighterize">Login in</a><br>
 		</div>
 		<a href="javascript:void(0);" class="icon mx-2" onclick="verticalNav()">
 			<i class="fa fa-bars" style="font-size: 30px; color: #343a40;"></i>
@@ -90,13 +52,22 @@ function genUserInfo()
 	</nav>
 	
 	<div id="content" class="content">
-		<div class="card transparentBg border-danger" style="margin-bottom:1rem">
-			<div id="info" style="padding:1rem">
-			</div>
-			<div style="padding: 1rem">
-				<a href="userCustomWeight.php" class="btn btn-outline-danger">Custom Restaurant Weighting</a>
-				<a href="logOut.php" class="btn btn-outline-danger">Log out</a>
-			</div>
+		<div class="wordbox"><h3>
+		This is a project of EIE4432 Web System and Technology.<br/>
+		This website aims to provide a guide of restaurants around The Hong Kong Polytechnic University,<br/>
+		which are Hung Hom, Whampoa and East Tsim Sha Tsui.<br/>
+		The website also provides a random function which is designed for user cannot decide what to eat.
+		</h3>
+		</div>
+		<div class="wordbox my-2">
+		<h2><i>Group Member:</i></h2><br>
+		<h3>
+			Hui Ka Hung 16035168D<br>
+			Kwan Wai Kin 13070896D<br>
+			Li King Wai 16035175D<br>
+			Ng Chi Chun 17023807D<br>
+			Tsang Chi Kin 16044506D<br>
+		</h3>
 		</div>
 	</div>
 	

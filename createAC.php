@@ -83,7 +83,7 @@
         <div class="col-md-4 mb-3">
             <label for="birthday">Birthday</label>
             <div class="input-group">
-                <input type="text" class="form-control" name="birthday" id="birthday" placeholder="Birthday*" required>
+                <input type="text" class="form-control" name="birthday" id="birthday" placeholder="YYYY-MM-DD" required>
 
                 <div class="invalid-feedback">
                     Please enter your birthday.

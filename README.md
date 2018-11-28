@@ -12,9 +12,16 @@ Features:
 
 Version Update:
 
+Ver. 1L
+1. Create logout function.
+2. Complete user custom weighting function.
+3. Random function support user custom weighting.
+4. Decorate index page.
+5. Change all page to php for user function support.
+
 Ver. 1k
 1. Create login function.
-2. Create creater user account function.
+2. Create create user account function.
 3. Creating userInfo.php.
 
 Ver. 1j
