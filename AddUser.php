@@ -1,5 +1,5 @@
 <?php
-$conn=mysqli_connect("localhost","root","","restaurantList");
+$conn=mysqli_connect("us-cdbr-iron-east-01.cleardb.net","b7edc7dcef5916","bae20f4b","heroku_b82a63fd777a03c");
 if($conn->connect_error)
 {
 	echo "Unable to connect to database.";
