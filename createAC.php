@@ -1,6 +1,16 @@
 <html>
 <title>Create Account - HeSheEat</title>
 <link rel="icon" href="https://i.imgur.com/nLtvyR5.png">
+<?php
+if(isset($_COOKIE["userName"]))
+{
+	echo "<script type='text/javascript'>
+	alert('You have logged in');
+	</script>";
+	echo "<script type='text/javascript'>setTimeout('', 10000);</script>";
+	echo "<script type='text/javascript'>window.location.replace(\"UserInfo.php\");</script>";
+}
+?>
 <style>
     span{color: red;}
 </style>
@@ -52,7 +62,17 @@
 			<input class="form-control mr-sm-2" type="search" name="eatwhat" placeholder="Type here" aria-label="Search">
 			<input class="btn btn-dark my-2 my-sm-0" type="submit" value="Search">
 			</form>
-			<a href="Login.php" class="btn btn-outline-light Brighterize">Login in</a><br>
+			<?php
+				if(isset($_COOKIE["userName"]))
+				{
+					echo '<a id="userB" href="userInfo.php" class="btn btn-outline-light my-2 Brighterize">';
+					echo "Welcome ".$_COOKIE["userName"]."</a><br>";
+				}else
+				{
+					echo '<a id="userB" href="LogIn.php" class="btn btn-outline-light Brighterize active" style="margin-top:-0.5rem">';
+					echo "Login</a><br>";
+				}
+			?>
 		</div>
 		<a href="javascript:void(0);" class="icon mx-2" onclick="verticalNav()">
 			<i class="fa fa-bars" style="font-size: 30px; color: #343a40;"></i>

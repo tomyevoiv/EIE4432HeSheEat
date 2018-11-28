@@ -135,7 +135,7 @@ function ranGenCard(x,y,z,r)
 					echo "Welcome ".$_COOKIE["userName"]."</a><br>";
 				}else
 				{
-					echo '<a id="userB" href="Login.php" class="btn btn-outline-light my-2 Brighterize">';
+					echo '<a id="userB" href="LogIn.php" class="btn btn-outline-light my-2 Brighterize">';
 					echo "Login</a><br>";
 				}
 			?>

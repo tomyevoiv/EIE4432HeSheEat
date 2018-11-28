@@ -112,7 +112,7 @@ function AJAXCheckUser() {
 					echo "Welcome ".$_COOKIE["userName"]."</a><br>";
 				}else
 				{
-					echo '<a id="userB" href="Login.php" class="btn btn-outline-light Brighterize active" style="margin-top:-0.5rem">';
+					echo '<a id="userB" href="LogIn.php" class="btn btn-outline-light Brighterize active" style="margin-top:-0.5rem">';
 					echo "Login</a><br>";
 				}
 			?>
