@@ -1,7 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>HeSheEat</title>
+<link rel="icon" href="https://i.imgur.com/nLtvyR5.png">
+<?php
+if(count($_COOKIE) == 0) 
+{
+	echo "<script type='text/javascript'>
+	alert('Pplease log in your account');
+	</script>";
+	echo "<script type='text/javascript'>setTimeout('', 10000);</script>";
+	echo "<script type='text/javascript'>window.location.replace(\"LogIn.php\");</script>";
+}
+?>
+<title><?php echo $_COOKIE["userName"] ?> - HeSheEat</title>
 <link rel="icon" href="https://i.imgur.com/nLtvyR5.png">
 <!-- Main CSS -->
 <link rel="stylesheet" href="main.css"/>
@@ -34,7 +45,7 @@ function verticalNav() {
 	<nav id="header" class="header navbar navbar-expand-lg bg-info">
 		<a href="index.html"><img src="https://i.imgur.com/nLtvyR5.png" alt="logo" style="height:100px"></a>
 		<ul class="navbar-nav mr-auto">
-		<a href="index.html"><button class="btn btn-outline-light active">Home</button></a> 
+		<a href="index.html"><button class="btn btn-outline-light">Home</button></a> 
 		<a href="restaurantListJS.html"><button class="btn btn-outline-light">Restaurant</button></a>
 		<a href="random.html"><button class="btn btn-outline-light">Random</button></a>
 		<a href="aboutUs.html"><button class="btn btn-outline-light">About Us</button></a>

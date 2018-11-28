@@ -6,7 +6,8 @@ html
 body 
 {
 	height: 100%;
-	background: url('https://i.imgur.com/TKpDkrc.jpg'); 
+	/* background: url('https://i.imgur.com/TKpDkrc.jpg');  */
+	background: url('https://i.imgur.com/5knIOKN.png'); 
 	background-size: cover;
     background-repeat:no-repeat;
 	background-attachment:fixed;
@@ -299,6 +300,12 @@ table, th, td {
     display: block;
     margin: auto auto;
     text-align: center;
+}
+
+.Brighterize
+{
+	float: right;
+	width: fixed;
 }
 
 .transparentBg

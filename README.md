@@ -12,6 +12,11 @@ Features:
 
 Version Update:
 
+Ver. 1k
+1. Create login function.
+2. Create creater user account function.
+3. Creating userInfo.php.
+
 Ver. 1j
 1. Modify random function which it now support one parameter per one category.
 2. Creating userCustomWeight.php for future user function.
