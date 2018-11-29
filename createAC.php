@@ -50,12 +50,12 @@ if(isset($_COOKIE["userName"]))
 <body>
 <div id="sitebody">
 	<nav id="header" class="header navbar navbar-expand-lg bg-info">
-		<a href="index.html"><img src="https://i.imgur.com/nLtvyR5.png" alt="logo" style="height:100px"></a>
+		<a href="index.php"><img src="https://i.imgur.com/nLtvyR5.png" alt="logo" style="height:100px"></a>
 		<ul class="navbar-nav mr-auto">
-		<a href="index.html"><button class="btn btn-outline-light active">Home</button></a> 
-		<a href="restaurantListJS.html"><button class="btn btn-outline-light">Restaurant</button></a>
-		<a href="random.html"><button class="btn btn-outline-light">Random</button></a>
-		<a href="aboutUs.html"><button class="btn btn-outline-light">About Us</button></a>
+		<a href="index.php"><button class="btn btn-outline-light active">Home</button></a> 
+		<a href="restaurantListJS.php"><button class="btn btn-outline-light">Restaurant</button></a>
+		<a href="random.php"><button class="btn btn-outline-light">Random</button></a>
+		<a href="aboutUs.php"><button class="btn btn-outline-light">About Us</button></a>
 		</ul>
 		<div>
 			<form name="UForm" action="search.php" method="post" class="form-inline">
