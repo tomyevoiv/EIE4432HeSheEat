@@ -1,3 +1,4 @@
+<link rel="icon" href="https://i.imgur.com/nLtvyR5.png">
 <?php
 $conn=mysqli_connect("localhost","root","","restaurantList");
 if($conn->connect_error)
@@ -33,15 +34,4 @@ if($bool!=0)
 {
 	echo 'Wrong Username or Password';
 }
-
-/* //AJAX
-if($UserName!="admin"||$Password!="admin"){
-    echo 'Wrong Username or Password';
-}else{
-    //set cookie and
-    $cookie_userName = $_GET["userName"];
-    $userName_set = setcookie('userName', $cookie_userName, time()+60000, '/');
-    echo "cookie set";
-} */
-
 ?>

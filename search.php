@@ -43,13 +43,7 @@ function verticalNav() {
 		if(!isset($_POST['eatwhat']))
 		{
 			$query1="SELECT * FROM restaurant";
-		}/*else if($_POST['eatwhat']=="")
-		{
-			$query1="SELECT * FROM restaurant";
-		} else if (!preg_match('/[a-zA-Z0-9]+/', $_POST['eatwhat']))
-		{
-			$query1="SELECT * FROM restaurant";
-		} */else
+		}else
 		{
 			$query1="SELECT * FROM restaurant WHERE 
 			Cuisine LIKE '%".$_POST['eatwhat']."%' or 
@@ -100,16 +94,6 @@ function verticalNav() {
 			word+='</div></div>';
 			x++;
 		}
-			/* $("#content").html(word);
-			i=0;
-			x=1;
-			for(i;i<data.length;i++){
-				$("#CH"+x).html(data[i].N);
-				$("#CC"+x).html(data[i].C);
-				$("#CD"+x).html(data[i].D);
-				$("#CP"+x).html(data[i].P);
-				x++;
-			} */
 		document.getElementById("content").innerHTML = word;
 	}
 </script>

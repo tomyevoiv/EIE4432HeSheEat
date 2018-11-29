@@ -56,7 +56,6 @@ function genTable()
 				word+="</tr>";
 			}
 			word+="</table><br />";
-			//console.log(word);
 			$("#UTable").html(word);
 		}
 	);

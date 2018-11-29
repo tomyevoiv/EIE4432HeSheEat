@@ -7,7 +7,6 @@
 	}
 	
 	$returndata=[];
-	// $Offset=-12+12*intval($_POST['page']);
 	if(!isset($_POST['eatwhat']))
 	{
 		$query1="SELECT * FROM restaurant ";
@@ -25,13 +24,11 @@
 		District='".$_POST['eatwhat']."' or 
 		Price='".$_POST['eatwhat']."'";
 	}
-	// $query1 .= " LIMIT 12 OFFSET ".$Offset;
 	$result1=$conn->query($query1);
 	if(!$result1) die("No information.");
     $result1->data_seek(0);
 	
 	$i=0;
-	$j=0;
 	while($row=$result1->fetch_assoc())
 	{ 
 		$returndata[$i]["ID"]=$i;
