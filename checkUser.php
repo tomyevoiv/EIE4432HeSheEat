@@ -1,4 +1,3 @@
-<link rel="icon" href="https://i.imgur.com/nLtvyR5.png">
 <?php
 $conn=mysqli_connect("localhost","root","","restaurantList");
 if($conn->connect_error)
