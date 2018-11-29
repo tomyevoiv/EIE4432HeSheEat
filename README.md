@@ -12,6 +12,14 @@ Features:
 
 Version Update:
 
+Ver. 2(Beta Version)
+1. Clean up code.
+
+Ver. 1LD (Presentation Version)
+1. userCustomWeight.php can check user input align between 0 to 10.
+2. userCustomWeight.php will load user weighting if they set before.
+3. Bugfix.
+
 Ver. 1L
 1. Create logout function.
 2. Complete user custom weighting function.

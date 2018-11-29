@@ -259,22 +259,8 @@ function start()
 			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" >
 			<h3>Featured Restaurant</h3>
 			<ol class="carousel-indicators" id="c">
-				<!-- <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-				<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-				<li data-target="#carouselExampleIndicators" data-slide-to="2"></li> -->
 			</ol>
 			<div class="carousel-inner" id="slide">
-				<!-- <div  class="carousel-item active" >
-					<div id="firstSlide" class="Scontent Scenterize"></div>
-				</div>
-				<div class="carousel-item">
-					<div id="secondSlide" class="Scontent Scenterize"></div>
-				</div>
-				<div class="carousel-item">
-					<div id="thirdSlide" class="Scontent Scenterize"></div>
-				</div>
-				<div class="carousel-item">
-				</div> -->
 			</div>
 			<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
 				<span class="carousel-control-prev-icon" aria-hidden="true"></span>

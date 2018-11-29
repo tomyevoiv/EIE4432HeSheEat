@@ -39,7 +39,7 @@ function verticalNav() {
 function genTable()
 {
 	var word = "";
-	$.post("getWeighting.php",
+	$.post("getUserWeight.php",
 		{eatwhatC:"all",eatwhatD:"all",eatwhatP:"all"},
 		function(data)
 		{
@@ -56,13 +56,13 @@ function genTable()
 				word+="</tr>";
 			}
 			word+="</table><br />";
-			//console.log(word);
 			$("#UTable").html(word);
 		}
 	);
 }
 function submitWeighting()
 {
+	var t = 0;
 	var subDataN = [];
 	var subDataW = [];
 	$.post("getRestaurant.php",
@@ -74,16 +74,23 @@ function submitWeighting()
 			{
 				subDataN[i] = document.getElementById("td"+i).innerHTML;
 				subDataW[i] = document.getElementById("tv"+i).value;
+				if (subDataW[i] > 10 || subDataW[i] < 0) {
+					t = t + 1;
+				}
 			}
-		console.log(subDataW);
-		$.post("changeUserWeight.php",
-			{Cname: subDataN, Cweight: subDataW},
-			function()
-			{
-				alert('User random preference is saved');
+			if (t == 0) {
+				console.log(subDataW);
+				$.post("changeUserWeight.php",
+					{Cname: subDataN, Cweight: subDataW},
+					function()
+					{
+						alert('User random preference is saved');
+					}
+				
+				);		
+			} else {
+				alert('The value of weighting should between 0 to 10.');
 			}
-			
-			);		
 		}
 	);
 }

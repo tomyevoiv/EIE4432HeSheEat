@@ -34,17 +34,15 @@ if(isset($_COOKIE["userName"]))
             crossorigin="anonymous"></script>		
 <!-- W3School Font -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script type="text/javascript">
-    /*
-    function checkInput(){
-        var UserNameCheck = /^[a-zA-Z0-9]{5,20}$/
-        if(!(document.getElementById("userName").value.match(UserNameCheck))){
-            alert("Username not correct");
-            document.getElementById("CheckUserName").innerHTML="Username not valid. ";
-            return false;
-        }
-
-    }*/
+<script type = "text/javascript">
+function verticalNav() {
+    var x = document.getElementById("header");
+    if (x.className === "header navbar navbar-expand-lg bg-info") {
+        x.className += " responsive";
+    } else {
+        x.className = "header navbar navbar-expand-lg bg-info";
+    }
+}
 </script>
 </header>
 <body>
